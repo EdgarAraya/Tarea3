@@ -7,6 +7,7 @@ package Interfaz;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,9 @@ public class Juego6x4 extends javax.swing.JFrame {
     private JButton[] pbtn = new JButton[2];
     private boolean primerc = false;
 
+
     
+    long inicioms = System.currentTimeMillis();
     
     public Juego6x4() {
         initComponents();
@@ -74,6 +77,7 @@ public class Juego6x4 extends javax.swing.JFrame {
             im2 = (ImageIcon) btn.getDisabledIcon();
             pbtn[1] = btn;
             primerc = true;
+            ganador();
            
             
         }
@@ -89,6 +93,19 @@ public class Juego6x4 extends javax.swing.JFrame {
                 
             }
             caraUp = false;
+        }
+    }
+    
+      private void ganador() {
+        if(!boton1.isEnabled() && !boton2.isEnabled() && !boton3.isEnabled() && !boton4.isEnabled() && !boton5.isEnabled() && !boton6.isEnabled() && 
+                !boton7.isEnabled() && !boton8.isEnabled() && !boton9.isEnabled() && !boton10.isEnabled() && !boton11.isEnabled() && 
+                !boton12.isEnabled() && !boton13.isEnabled() && !boton14.isEnabled() && !boton15.isEnabled() && !boton16.isEnabled()    
+                && !boton17.isEnabled() && !boton18.isEnabled() && !boton19.isEnabled() && !boton20.isEnabled() && !boton21.isEnabled()
+                 && !boton22.isEnabled() && !boton23.isEnabled() && !boton24.isEnabled()) {
+            
+            long duracion = (System.currentTimeMillis()- inicioms)/1000;
+            JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
+         
         }
     }
     

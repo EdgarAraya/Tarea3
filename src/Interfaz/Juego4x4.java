@@ -27,7 +27,9 @@ public class Juego4x4 extends javax.swing.JFrame {
     
     //private jButton butArr[]= new butArr
     
+   
     
+    long inicioms = System.currentTimeMillis();
     
     
     public Juego4x4() {
@@ -107,7 +109,9 @@ public class Juego4x4 extends javax.swing.JFrame {
         if(!boton1.isEnabled() && !boton2.isEnabled() && !boton3.isEnabled() && !boton4.isEnabled() && !boton5.isEnabled() && !boton6.isEnabled() && 
                 !boton7.isEnabled() && !boton8.isEnabled() && !boton9.isEnabled() && !boton10.isEnabled() && !boton11.isEnabled() && 
                 !boton12.isEnabled() && !boton13.isEnabled() && !boton14.isEnabled() && !boton15.isEnabled() && !boton16.isEnabled()) {
-            JOptionPane.showMessageDialog(this, "Felicidades");
+            
+            long duracion = (System.currentTimeMillis()- inicioms)/1000;
+            JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
          
         }
     }
