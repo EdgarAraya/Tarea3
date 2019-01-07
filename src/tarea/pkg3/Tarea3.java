@@ -5,6 +5,8 @@
  */
 package tarea.pkg3;
 
+import Interfaz.Menu;
+
 /**
  *
  * @author Luis
@@ -37,6 +39,9 @@ public class Tarea3 {
         
         System.out.println(lista);
         
+        Menu m= new Menu();
+        
+        m.setVisible(true);
         
         
     }
