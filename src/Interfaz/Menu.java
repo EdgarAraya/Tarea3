@@ -5,6 +5,9 @@
  */
 package Interfaz;
 
+import tarea.pkg3.Jugador;
+import tarea.pkg3.ListaJugadores;
+
 /**
  *
  * @author Edgar-pc
@@ -14,6 +17,33 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    private static int dificultad;
+    
+    private static ListaJugadores lista= new ListaJugadores();
+
+    public static ListaJugadores getLista() {
+        return lista;
+    }
+
+    public static void setLista(ListaJugadores lista) {
+        Menu.lista = lista;
+    }
+    
+    
+    
+    
+
+    public static void setDificultad(int dificultad) {
+        Menu.dificultad = dificultad;
+    }
+
+    public static int getDificultad() {
+        return dificultad;
+    }
+    
+    
+    
+    
     
      
     
@@ -21,6 +51,10 @@ public class Menu extends javax.swing.JFrame {
     
     
     public Menu() {
+        
+        Jugador unnamed=new Jugador("Sin Nombre");
+        lista.agregarJugador(unnamed);
+
         initComponents();
     }
 
@@ -41,8 +75,8 @@ public class Menu extends javax.swing.JFrame {
         jTemas = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jJugadores = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jCrear = new javax.swing.JButton();
+        jJugar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -99,12 +133,12 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jugador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
-        jButton1.setText("Crear Nuevo Jugador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jCrear.setText("Crear Nuevo Jugador");
+        jCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jCrearActionPerformed(evt);
             }
         });
 
@@ -116,7 +150,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -125,14 +159,14 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jCrear)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Jugar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jJugar.setText("Jugar");
+        jJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jJugarActionPerformed(evt);
             }
         });
 
@@ -149,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(137, 137, 137)
-                .addComponent(jButton2)
+                .addComponent(jJugar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -162,25 +196,35 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jJugar)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        if (jDificultad1.isSelected()) dificultad=1;
+        else{
+            dificultad=2;
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jJugarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrearActionPerformed
         // TODO add your handling code here:
         
         NuevoJugador.getInstance().setVisible(true);
         
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,11 +263,11 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jCrear;
     private javax.swing.JRadioButton jDificultad1;
     private javax.swing.JRadioButton jDificultad2;
     private javax.swing.JComboBox<String> jJugadores;
+    private javax.swing.JButton jJugar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
