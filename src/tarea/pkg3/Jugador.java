@@ -15,7 +15,10 @@ import java.util.Collections;
 public class Jugador implements Comparable<Jugador>{
     
     private final String nombre;
-    private final ArrayList<Integer>tiempos;
+    private  ArrayList<Integer>tiempos;
+    
+    
+    
     
     public Jugador(String nombre){
         this.nombre=nombre;
@@ -79,8 +82,10 @@ public class Jugador implements Comparable<Jugador>{
     public ArrayList<Integer> getTiempos() {
         return tiempos;
     }
-    
-    
+    //test
+    public void setTiempos(ArrayList<Integer> tiempos)  {
+        this.tiempos=tiempos;
+    }
     
     
     

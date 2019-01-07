@@ -25,7 +25,7 @@ public class Menu extends javax.swing.JFrame {
      */
     private static int dificultad;
     
-    private static ListaJugadores lista= new ListaJugadores();
+    private static ListaJugadores lista;
 
     public static ListaJugadores getLista() {
         return lista;
@@ -56,7 +56,8 @@ public class Menu extends javax.swing.JFrame {
        ArrayList<String> nombres= lista.getNombres();
        System.out.println( System.getProperty("user.dir"));
        
-       
+       System.out.println(nombres.size());
+       System.out.println("hey"+lista.size());
        
        for (int i=0;i< nombres.size();i++){
            
@@ -77,20 +78,39 @@ public class Menu extends javax.swing.JFrame {
     
     
     private void loadData(){
+        
+        ArrayList<Integer> tiempos;
+        
+        lista= new ListaJugadores();
+                
+        
         String path=  System.getProperty("user.dir");
         try {
         Scanner sc = new Scanner(new File(path+"\\Memorice.txt")).useDelimiter(";|\n");
 
         while (sc.hasNext()) {
-
+            String nombre= "";
+            tiempos= new ArrayList();
    
-            String nombre = sc.next();
-           int tiempo = sc.nextInt();
+      
+            nombre = sc.next();
+      
+      
+          while (sc.hasNextInt()){
+              tiempos.add(sc.nextInt());
+              
+          }
+              
+              
+           System.out.println(nombre);
+           System.out.println(tiempos.toString());
            
-            System.out.println(nombre);
-           System.out.println(tiempo);
+           Jugador nuevo= new Jugador(nombre);
+           nuevo.setTiempos(tiempos);
+            System.out.println(nuevo);
+            System.out.println(lista.agregarJugador(nuevo));
+            System.out.println("sss"+lista.size());
            
-
         }
 
         sc.close();
@@ -118,10 +138,10 @@ public class Menu extends javax.swing.JFrame {
     
     public Menu() {
         loadData();
-        Jugador unnamed=new Jugador("Sin Nombre");
+       // Jugador unnamed=new Jugador("Sin Nombre");
         
-        lista = new ListaJugadores();
-        System.out.println(lista.agregarJugador(unnamed));
+       // lista = new ListaJugadores();
+       // System.out.println(lista.agregarJugador(unnamed));
         
         initComponents();
         

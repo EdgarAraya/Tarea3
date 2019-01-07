@@ -17,7 +17,7 @@ public class Tarea3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+     /*
         Jugador uno = new Jugador("Luis");
         Jugador dos = new Jugador("Franco");
         Jugador tres = new Jugador("Riki");
@@ -35,10 +35,11 @@ public class Tarea3 {
         lista.agregarJugador(uno);
         System.out.println(lista.agregarJugador(dos));
         lista.agregarJugador(tres);
-        
-        
+      
         System.out.println(lista);
-        
+        */
+     
+     
         Menu m= new Menu();
         
         m.setVisible(true);
