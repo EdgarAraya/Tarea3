@@ -5,6 +5,7 @@
  */
 package tarea.pkg3;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
@@ -23,6 +24,12 @@ public class ListaJugadores {
         return jugadores;
     }
     
+    public int size(){
+        return this.jugadores.size();
+    }
+    
+    
+    
     public boolean agregarJugador(Jugador nuevo){
         return this.jugadores.add(nuevo);
     }
@@ -38,6 +45,18 @@ public class ListaJugadores {
         return lista;
         
     }
+    
+    public ArrayList<String> getNombres(){
+        ArrayList<String> nombres= new ArrayList();
+        
+        for (Jugador jug: jugadores){
+            nombres.add(jug.getNombre());
+            
+        }
+        return nombres;
+        
+    }
+    
     
     public Jugador buscarJugador(String nombre){
         

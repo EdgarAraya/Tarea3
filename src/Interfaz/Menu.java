@@ -5,6 +5,12 @@
  */
 package Interfaz;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import tarea.pkg3.Jugador;
 import tarea.pkg3.ListaJugadores;
 
@@ -40,6 +46,66 @@ public class Menu extends javax.swing.JFrame {
     public static int getDificultad() {
         return dificultad;
     }
+
+    public void setjJugadores(JComboBox<String> jJugadores) {
+        this.jJugadores = jJugadores;
+    }
+    
+    private void fillJugadores()
+   {
+       ArrayList<String> nombres= lista.getNombres();
+       System.out.println( System.getProperty("user.dir"));
+       
+       
+       
+       for (int i=0;i< nombres.size();i++){
+           
+          
+        if ( jJugadores.getItemAt(i) == null )//parche          
+                 {
+                    jJugadores.addItem(nombres.get(i));
+                 }
+       
+       
+       
+       
+       }
+       
+       
+       
+   }
+    
+    
+    private void loadData(){
+        String path=  System.getProperty("user.dir");
+        try {
+        Scanner sc = new Scanner(new File(path+"\\Memorice.txt")).useDelimiter(";|\n");
+
+        while (sc.hasNext()) {
+
+   
+            String nombre = sc.next();
+           int tiempo = sc.nextInt();
+           
+            System.out.println(nombre);
+           System.out.println(tiempo);
+           
+
+        }
+
+        sc.close();
+
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+        
+        
+        
+       
+        
+    }
+    
+    
     
     
     
@@ -51,11 +117,18 @@ public class Menu extends javax.swing.JFrame {
     
     
     public Menu() {
-        
+        loadData();
         Jugador unnamed=new Jugador("Sin Nombre");
-        lista.agregarJugador(unnamed);
-
+        
+        lista = new ListaJugadores();
+        System.out.println(lista.agregarJugador(unnamed));
+        
         initComponents();
+        
+        fillJugadores();
+        
+        
+        
     }
 
     /**
@@ -77,6 +150,8 @@ public class Menu extends javax.swing.JFrame {
         jJugadores = new javax.swing.JComboBox<>();
         jCrear = new javax.swing.JButton();
         jJugar = new javax.swing.JButton();
+        test = new javax.swing.JComboBox<>();
+        bla = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -133,7 +208,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jugador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        jJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
 
         jCrear.setText("Crear Nuevo Jugador");
         jCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +245,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        test.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        bla.setText("bla");
+        bla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,7 +268,13 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(jJugar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bla)
+                .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +286,12 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jJugar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jJugar)
+                    .addComponent(bla))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,6 +319,15 @@ public class Menu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jCrearActionPerformed
+
+    private void blaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blaActionPerformed
+        // TODO add your handling code here:
+        
+        fillJugadores();
+        
+        
+        
+    }//GEN-LAST:event_blaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,6 +365,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bla;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jCrear;
     private javax.swing.JRadioButton jDificultad1;
@@ -272,5 +376,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JComboBox<String> jTemas;
+    private javax.swing.JComboBox<String> test;
     // End of variables declaration//GEN-END:variables
 }

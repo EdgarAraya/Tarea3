@@ -14,8 +14,8 @@ import java.util.Collections;
  */
 public class Jugador implements Comparable<Jugador>{
     
-    private String nombre;
-    private ArrayList<Integer>tiempos;
+    private final String nombre;
+    private final ArrayList<Integer>tiempos;
     
     public Jugador(String nombre){
         this.nombre=nombre;
@@ -50,7 +50,17 @@ public class Jugador implements Comparable<Jugador>{
     
     @Override
     public String toString(){
+        
+        if (this.tiempos.size()!=0){
+    
         return this.nombre + " "+ this.mejorTiempo();
+        
+        }
+        else{
+            return this.nombre + " 0";
+        }
+        
+        
     }
     
     public void agregarTiempo(int tiempo){
