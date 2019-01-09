@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import tarea.pkg3.Jugador;
+
 /**
  *
  * @author Edgar-pc
@@ -139,7 +141,21 @@ public class NuevoJugador extends javax.swing.JFrame {
         if (jNombre.getText().isEmpty()){
             jDialog1.setVisible(true);
         }
-        
+        else{
+            
+            String nombre= jNombre.getText();
+            
+            Jugador nuevo= new Jugador(nombre);
+            
+            if(Menu.getLista().agregarJugador(nuevo)){
+                
+                Menu.getInstance().fillJugadores();
+                
+            }
+            
+            
+            
+        }
         
         
         

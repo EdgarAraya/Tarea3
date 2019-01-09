@@ -23,6 +23,8 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
+    private static Menu p;
     private static int dificultad;
     
     private static ListaJugadores lista;
@@ -35,7 +37,13 @@ public class Menu extends javax.swing.JFrame {
         Menu.lista = lista;
     }
     
-    
+    public static Menu getInstance(){
+        
+        if (p==null){
+            p= new Menu();
+        }
+        return p;
+    }
     
     
 
@@ -47,11 +55,11 @@ public class Menu extends javax.swing.JFrame {
         return dificultad;
     }
 
-    public void setjJugadores(JComboBox<String> jJugadores) {
+    public  void setjJugadores(JComboBox<String> jJugadores) {
         this.jJugadores = jJugadores;
     }
     
-    private void fillJugadores()
+    public void fillJugadores()
    {
        ArrayList<String> nombres= lista.getNombres();
        System.out.println( System.getProperty("user.dir"));
