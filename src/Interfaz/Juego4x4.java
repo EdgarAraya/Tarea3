@@ -58,7 +58,7 @@ public class Juego4x4 extends javax.swing.JFrame {
    
     
     private void setCards() {
-        int[] numbers = uno.getCardNumbers();
+        int[] numbers = uno.getCardNumbers(4,4);
         
         boton1.setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[0]+".jpg")));
         boton2.setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[1]+".jpg")));
