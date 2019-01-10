@@ -6,6 +6,9 @@
 package Interfaz;
 
 import java.awt.Button;
+import java.awt.Event;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -22,6 +25,7 @@ public class Juego extends javax.swing.JFrame {
     public Juego() {
         initComponents();
         Botones();
+        setCards();
         
     }
     
@@ -31,63 +35,57 @@ public class Juego extends javax.swing.JFrame {
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
-                botones [i][j].CambiarNombre(i,j);
                 jPanel1.add(botones[i][j]);
-            
+                MouseListener uno = new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        botones[i][j].compare();
+                    }
+                    botones[i][j].addMouseListener(uno);    
+                };
+                        
+                
             }
         }
     }
 
-    
-    private CodigoJuego uno= new CodigoJuego();
-    private boolean caraUp = false;
-    private ImageIcon im1;
-    private ImageIcon im2;
-    private JButton[] pbtn = new JButton[2];
-    private boolean primerc = false;
-    
-    //private jButton butArr[]= new butArr
-    
-   
-    
-    long inicioms = System.currentTimeMillis();
-    
+    CodigoJuego uno = new CodigoJuego();
 
-    
-    
-    private void botonEnabled(JButton btn) {
+     public void setCards() {
+        int[] numbers = uno.getCardNumbers();
+        int count=0;
+        for(int i=0; i<4; i++){
+            for(int j=0; j<4; j++){
+                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[count]+".jpg")));
+                count++;
+            }
+        }
         
-        if(!caraUp) {
-            btn.setEnabled(false);
-            im1 = (ImageIcon) btn.getDisabledIcon();
-            pbtn[0] = btn;
-            caraUp = true;
-            primerc = false;
-        }
-        else {
-            btn.setEnabled(false);
-            im2 = (ImageIcon) btn.getDisabledIcon();
-            pbtn[1] = btn;
-            primerc = true;
-          
-        }
-    }
-    
-   
-    private void compare() {
-        if(caraUp && primerc) {
-            
-            if(im1.getDescription().compareTo(im2.getDescription()) != 0) {
-                pbtn[0].setEnabled(true);
-                pbtn[1].setEnabled(true);
-               
-            }
-            caraUp = false;
-        }
-    }
-    
+    } 
+     
     
      
+    
     
     
     @SuppressWarnings("unchecked")
