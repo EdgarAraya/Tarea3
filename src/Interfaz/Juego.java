@@ -178,6 +178,17 @@ public class Juego extends javax.swing.JFrame {
         }
     }
     
+     private void setCards1(){
+         int[] numbers = uno.getCardNumbers(filas,columnas);
+        int count=0;
+        for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
+               // botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
+                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
+                count++;
+            }
+        }
+     }
      
      private void setCards() {
         int[] numbers = uno.getCardNumbers(filas,columnas);
@@ -243,10 +254,8 @@ public class Juego extends javax.swing.JFrame {
                botones[i][j].setEnabled(true);
             }
             primerc=false;
-            caraUp=false;
-            
-            CodigoJuego log =new CodigoJuego();
-            setCards();
+            caraUp=false;  
+            setCards1();
         }
         }
      
