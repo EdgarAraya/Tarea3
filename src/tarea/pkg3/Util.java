@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 public class Util {
     
-    public static ListaJugadores cargarJugadores(String archivo) throws FileNotFoundException, IOException{
+    public  ListaJugadores cargarJugadores(String archivo) throws FileNotFoundException, IOException{
        String k;
         ListaJugadores lista= new ListaJugadores();
         File x= new File(archivo);

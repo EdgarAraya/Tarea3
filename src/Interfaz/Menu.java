@@ -7,12 +7,17 @@ package Interfaz;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import tarea.pkg3.Jugador;
 import tarea.pkg3.ListaJugadores;
+import tarea.pkg3.Util;
 
 /**
  *
@@ -25,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
      */
     
     private static Menu p;
-    private static int dificultad;
+    private static boolean dificultad;
     
     private static ListaJugadores lista;
 
@@ -44,16 +49,18 @@ public class Menu extends javax.swing.JFrame {
         }
         return p;
     }
-    
-    
 
-    public static void setDificultad(int dificultad) {
-        Menu.dificultad = dificultad;
-    }
-
-    public static int getDificultad() {
+    public static boolean isDificultad() {
         return dificultad;
     }
+
+    public static void setDificultad(boolean dificultad) {
+        Menu.dificultad = dificultad;
+    }
+    
+    
+
+   
 
     public  void setjJugadores(JComboBox<String> jJugadores) {
         this.jJugadores = jJugadores;
@@ -100,7 +107,9 @@ public class Menu extends javax.swing.JFrame {
             String nombre= "";
             tiempos= new ArrayList();
    
-      
+            System.out.println("Estoy en nombre");
+            
+            
             nombre = sc.next();
       
       
@@ -133,8 +142,25 @@ public class Menu extends javax.swing.JFrame {
         
     }
     
-    
-    
+    //Delete
+    private void loadData2(){
+        
+        Util util= new Util();
+        
+        ListaJugadores test= new ListaJugadores();
+        
+        String path= System.getProperty("user.dir");
+        
+        try {
+            test= util.cargarJugadores(path+"\\Memorice.txt");
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        System.out.println(test);
+      
+    }
     
     
     
@@ -151,11 +177,12 @@ public class Menu extends javax.swing.JFrame {
        // lista = new ListaJugadores();
        // System.out.println(lista.agregarJugador(unnamed));
         
+    
         initComponents();
         
         fillJugadores();
         
-        
+       // loadData2();
         
     }
 
@@ -328,10 +355,6 @@ public class Menu extends javax.swing.JFrame {
     private void jJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugarActionPerformed
         // TODO add your handling code here:
         
-        if (jDificultad1.isSelected()) dificultad=1;
-        else{
-            dificultad=2;
-        }
         
         
         
@@ -352,6 +375,22 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         fillJugadores();
+        
+        System.out.println(lista.toString());
+        
+        
+        
+        try {
+            lista.saveData();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         
         

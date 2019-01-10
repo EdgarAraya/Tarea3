@@ -5,6 +5,16 @@
  */
 package tarea.pkg3;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
@@ -40,7 +50,7 @@ public class ListaJugadores {
         String lista="";
         
         for(Jugador p: this.jugadores){
-            lista+=p.toString()+"\n";
+            lista+=p.toString()+"\r\n";
         }
         return lista;
         
@@ -69,5 +79,62 @@ public class ListaJugadores {
 
     }
     
-    
+    public void saveData() throws FileNotFoundException, UnsupportedEncodingException, IOException{
+        String path=  System.getProperty("user.dir");
+        
+        
+        
+        try (PrintWriter writer = new PrintWriter(path+"\\Memorice_test.txt", "UTF-8")) {
+            writer.println(this.toString());
+            System.out.println("here");
+        }
+        
+        
+        /*
+         try {
+            //Whatever the file path is.
+            File statText = new File(path+"\\the-file-name.txt");
+            FileOutputStream is = new FileOutputStream(statText);
+            OutputStreamWriter osw = new OutputStreamWriter(is);    
+            Writer w = new BufferedWriter(osw);
+            w.write(this.toString());
+            w.close();
+        } catch (IOException e) {
+            System.err.println("Problem writing to the file");
+        }
+        
+         */
+        
+        
+         /*
+            FileWriter fileWriter = new FileWriter(path+"\\the-file-name.txt");
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.print("Some String\r\n");
+        printWriter.printf("Product name is %s and its price is %d $", "iPhone", 1000);
+        printWriter.close();
+
+        */
+
+
 }
+         
+         
+         
+         
+         
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+

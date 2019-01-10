@@ -12,7 +12,7 @@ import java.util.Collections;
  *
  * @author Luis
  */
-public class Jugador implements Comparable<Jugador>{
+public class Jugador implements Comparable<Jugador> {
     
     private final String nombre;
     private  ArrayList<Integer>tiempos;
@@ -53,15 +53,23 @@ public class Jugador implements Comparable<Jugador>{
     
     @Override
     public String toString(){
+         String datos="";
+        
+        
         
         if (this.tiempos.size()!=0){
-    
-        return this.nombre + " "+ this.mejorTiempo();
-        
+        datos+= this.nombre+";";
+                
+                for(int i =0; i < this.totalJuegos();i++){
+                    
+                    datos+=tiempos.get(i)+";";   
+                }      
         }
         else{
             return this.nombre + " 0";
         }
+        
+        return datos;
         
         
     }
