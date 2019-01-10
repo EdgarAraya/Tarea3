@@ -30,6 +30,10 @@ public class Juego extends javax.swing.JFrame {
     private static Juego p;
     private String image;
     
+    private int filas;
+    private int columnas;
+    
+    
     
     public static Juego getInstance(){
         if(p==null){
@@ -104,8 +108,7 @@ public class Juego extends javax.swing.JFrame {
         int count=0;
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
-               // botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
-                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[count]+".jpg")));
+                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
                 count++;
             }
         }
