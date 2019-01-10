@@ -7,6 +7,8 @@ package Interfaz;
 
 import java.awt.Button;
 import java.awt.Event;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -65,7 +67,35 @@ public class Juego extends javax.swing.JFrame {
             for(int j=0; j<4; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
                 jPanel1.add(botones[i][j]);
-            
+ 
+                
+                    MouseListener uno = new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        botones[i][j].compare();
+                    }
+                };
+                    botones[i][j].addMouseListener(uno);
             }
         }
     }
@@ -95,6 +125,7 @@ public class Juego extends javax.swing.JFrame {
      
      
      
+    
     
     
     @SuppressWarnings("unchecked")

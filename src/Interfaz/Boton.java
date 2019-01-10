@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -36,11 +37,8 @@ public class Boton extends JButton implements ActionListener{
         botonEnabled();
     }
     
-    public void mouseExited(MouseEvent e){
-        compare();
-    }
     
-      private void botonEnabled() {
+      public void botonEnabled() {
         
         if(!caraUp) {
             this.setEnabled(false);
@@ -58,12 +56,13 @@ public class Boton extends JButton implements ActionListener{
     }
     
    
-    private void compare() {
+    public void compare() {
         if(caraUp && primerc) {
             
             if(im1.getDescription().compareTo(im2.getDescription()) != 0) {
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
+               
             }
             caraUp = false;
         }
