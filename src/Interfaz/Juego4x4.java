@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import tarea.pkg3.Jugador;
 
 
 
@@ -17,7 +18,8 @@ import javax.swing.JOptionPane;
  * @author luisbenitez
  */
 public class Juego4x4 extends javax.swing.JFrame {
-
+    private static Juego4x4 p;
+    
     private CodigoJuego uno= new CodigoJuego();
     private boolean caraUp = false;
     private ImageIcon im1;
@@ -30,6 +32,21 @@ public class Juego4x4 extends javax.swing.JFrame {
    
     
     long inicioms = System.currentTimeMillis();
+    
+     public static Juego4x4 getInstance(){
+        
+        if (p==null){
+            p= new Juego4x4();
+        }
+        return p;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     public Juego4x4() {
@@ -113,6 +130,19 @@ public class Juego4x4 extends javax.swing.JFrame {
             long duracion = (System.currentTimeMillis()- inicioms)/1000;
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
          
+            
+            Jugador j= Menu.getInstance().getJugador();
+            
+            
+            
+            
+            
+            Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
+            
+            
+            
+            
+            
         }
     }
     
@@ -137,7 +167,7 @@ public class Juego4x4 extends javax.swing.JFrame {
         boton15 = new javax.swing.JButton();
         boton16 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes1/signo.png"))); // NOI18N
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -342,7 +372,7 @@ public class Juego4x4 extends javax.swing.JFrame {
                         .addComponent(boton9)
                         .addGap(18, 18, 18)
                         .addComponent(boton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(boton11)
                         .addGap(18, 18, 18)
                         .addComponent(boton12))
@@ -366,11 +396,11 @@ public class Juego4x4 extends javax.swing.JFrame {
                         .addComponent(boton13)
                         .addGap(18, 18, 18)
                         .addComponent(boton14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(boton15)
                         .addGap(18, 18, 18)
                         .addComponent(boton16)))
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

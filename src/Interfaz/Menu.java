@@ -37,8 +37,8 @@ public class Menu extends javax.swing.JFrame {
     
     
     
-
-    public static ListaJugadores getLista() {
+//achtung static
+    public  ListaJugadores getLista() {
         return lista;
     }
 
@@ -62,11 +62,25 @@ public class Menu extends javax.swing.JFrame {
         Menu.dificultad = dificultad;
     }
     
-    
+    public  Jugador getJugador(){
+        
+        int a=jJugadores.getSelectedIndex();
+        
+        ArrayList<String> nombres= lista.getNombres();
+                
+              nombres.get(a);
+                
+        
+        return lista.buscarJugador(nombres.get(a));
+        
+                
+                
+                
+    }
 
    
 
-    public  void setjJugadores(JComboBox<String> jJugadores) {
+    public   void setjJugadores(JComboBox<String> jJugadores) {
         this.jJugadores = jJugadores;
     }
     
@@ -230,6 +244,7 @@ public class Menu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jConsola = new javax.swing.JTextArea();
+        jTest4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -350,23 +365,17 @@ public class Menu extends javax.swing.JFrame {
         jConsola.setRows(5);
         jScrollPane1.setViewportView(jConsola);
 
+        jTest4.setText("Probar 4x4");
+        jTest4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTest4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jJugar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bla)
-                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -382,8 +391,24 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jTest4)
+                        .addGap(44, 44, 44)
+                        .addComponent(jJugar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bla)
+                        .addGap(35, 35, 35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,7 +422,8 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jJugar)
-                    .addComponent(bla))
+                    .addComponent(bla)
+                    .addComponent(jTest4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -493,6 +519,17 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jAddTiempoActionPerformed
 
+    private void jTest4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTest4ActionPerformed
+        // TODO add your handling code here:
+        
+        Juego4x4.getInstance().setVisible(true);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jTest4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,6 +581,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jTemas;
+    private javax.swing.JButton jTest4;
     private javax.swing.JTextField jTiempo;
     private javax.swing.JComboBox<String> test;
     // End of variables declaration//GEN-END:variables
