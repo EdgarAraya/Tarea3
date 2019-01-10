@@ -29,9 +29,30 @@ public class Juego extends javax.swing.JFrame {
      */
     private static Juego p;
     private int filas;
-    private int columnas;
+    private int columnas = 4;
     
-    
+    private boolean basico;
+
+    public boolean isBasico() {
+        return basico;
+    }
+
+    public void setBasico(boolean basico) {
+        this.basico = basico;
+    }
+
+    public int getFilas() {
+        return filas;
+    }
+
+    public void setFilas() {
+        if(isBasico()){
+            this.filas=4;
+        }else{
+            this.filas=6;
+        }
+    }
+
     private String image;
     
  
@@ -58,11 +79,11 @@ public class Juego extends javax.swing.JFrame {
  
     }
     
-    Boton [] [] botones = new Boton [4][4];
+    Boton [] [] botones = new Boton [filas][columnas];
      long inicioms = System.currentTimeMillis();
     public void Botones(){
-        for(int i=0; i<4; i++){
-            for(int j=0; j<4; j++){
+        for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
                 jPanel1.add(botones[i][j]);
  
@@ -140,8 +161,8 @@ public class Juego extends javax.swing.JFrame {
      private void setCards() {
         int[] numbers = uno.getCardNumbers();
         int count=0;
-        for(int i=0; i<4; i++){
-            for(int j=0; j<4; j++){
+        for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
                // botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
                 botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
                 count++;
@@ -149,8 +170,8 @@ public class Juego extends javax.swing.JFrame {
         }
         
         
-        for(int i=0; i<4; i++){
-            for(int j=0; j<4; j++){
+        for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
                 int y=i;
                 int aux=j;
                 botones[i][j].addActionListener(new ActionListener() {
@@ -162,8 +183,8 @@ public class Juego extends javax.swing.JFrame {
             }
         }
         
-      for(int i = 0; i<4 ; i++){
-            for(int j=0; j<4; j++){
+      for(int i = 0; i<filas ; i++){
+            for(int j=0; j<columnas; j++){
                 botones[i][j].addMouseListener(new MouseListener() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -198,8 +219,8 @@ public class Juego extends javax.swing.JFrame {
     
        private void ganador() {
            int count = 0;
-           for(int i=0; i<4; i++){
-            for(int j=0; j<4; j++){
+           for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
                if(!botones[i][j].isEnabled()){
                     count++;
                 }
@@ -296,6 +317,9 @@ public class Juego extends javax.swing.JFrame {
 
     private void jTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTestActionPerformed
         // TODO add your handling code here:
+        
+        System.out.println(basico);
+        
         
        if (Menu.isDificultad()){
            System.out.println("basico");
