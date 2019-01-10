@@ -28,20 +28,20 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
-    private int filas=4;
-    private int columnas = 4;
+    private static int filas=4;
+    private static int columnas = 4;
     
-    private boolean basico;
+    private static boolean basico;
 
-    public boolean isBasico() {
+    public  boolean isBasico() {
         return basico;
     }
 
-    public void setBasico(boolean basico) {
-        this.basico = basico;
+    public static void setBasico(boolean basico) {
+        Juego.basico = basico;
     }
 
-    public int getFilas() {
+    public static int getFilas() {
         return filas;
     }
 
@@ -73,10 +73,15 @@ public class Juego extends javax.swing.JFrame {
         
         setFilas();
         
+       
+        
+        
+        
         System.out.println(filas);
         initComponents();
         
         System.out.println(filas);
+        
         System.out.println("antes de botones");
         Botones();
         
@@ -277,11 +282,11 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGap(0, 756, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 571, Short.MAX_VALUE)
         );
 
         jTest.setText("Probar dificultad");
@@ -324,8 +329,8 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTest)
                 .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
