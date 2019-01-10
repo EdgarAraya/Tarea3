@@ -82,9 +82,13 @@ public class ListaJugadores {
     public void saveData() throws FileNotFoundException, UnsupportedEncodingException, IOException{
         String path=  System.getProperty("user.dir");
         
+        String path2= System.getProperty("user.home");
+        //t}guardar en carpeta proyecto
+        // try (PrintWriter writer = new PrintWriter(path+"\\Memorice_test.txt", "UTF-8"))
+        System.out.println("guardado en"+path2);
         
         
-        try (PrintWriter writer = new PrintWriter(path+"\\Memorice_test.txt", "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter(path2+"\\Memorice_test.txt", "UTF-8")) {
             writer.println(this.toString());
             System.out.println("here");
         }

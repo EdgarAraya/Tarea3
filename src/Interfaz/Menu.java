@@ -65,7 +65,11 @@ public class Menu extends javax.swing.JFrame {
         int a=jTemas.getSelectedIndex();
         
         System.out.println(a);
-        return "Imagenes"+(a+1);
+        imagen="";
+        imagen+= "Imagenes"+(a+1);
+        
+        
+        return imagen;
         
         
         
@@ -331,6 +335,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jTemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Animales", "Disney", "Los Simpsons"}));
+        jTemas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTemasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -499,7 +508,7 @@ public class Menu extends javax.swing.JFrame {
         
         imagen=this.getjTema();
         
-        jugador= getJugador();
+        //jugador= getJugador();
         
         
         
@@ -611,6 +620,9 @@ public class Menu extends javax.swing.JFrame {
     private void jtestdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtestdActionPerformed
         // TODO add your handling code here:
         
+        System.out.println(imagen);
+        
+        
         if( this.isDificultad()){
             System.out.println("basico");
         }else{
@@ -642,7 +654,19 @@ public class Menu extends javax.swing.JFrame {
     private void jJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugadoresActionPerformed
         // TODO add your handling code here:
         
-        jJugadores.getSelectedIndex();
+        int a;
+        a=jJugadores.getSelectedIndex();
+        
+        ArrayList<String> nombres= lista.getNombres();
+        
+        
+        
+        jugador= lista.buscarJugador(nombres.get(a));
+        
+        
+        
+       
+        System.out.println(jugador);
         
         
         
@@ -650,6 +674,16 @@ public class Menu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jJugadoresActionPerformed
+
+    private void jTemasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTemasActionPerformed
+        // TODO add your handling code here:
+        int a= jTemas.getSelectedIndex();
+        
+        imagen="Imagenes"+(a+1) ;
+        
+        
+        
+    }//GEN-LAST:event_jTemasActionPerformed
 
     /**
      * @param args the command line arguments

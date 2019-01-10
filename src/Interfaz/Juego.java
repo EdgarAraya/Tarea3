@@ -11,7 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -58,7 +63,7 @@ public class Juego extends javax.swing.JFrame {
         }
     }
 
-    private String image;
+    private static String image;
     
  
     
@@ -82,15 +87,15 @@ public class Juego extends javax.swing.JFrame {
         //botones= new Boton [filas][columnas];
         
         
-        System.out.println(filas);
+        
         initComponents();
         
         System.out.println(filas);
         
-        System.out.println("antes de botones");
+        
         Botones();
         
-        System.out.println("despues de botones");
+       ;
         setCards();
  
     }
@@ -280,12 +285,20 @@ public class Juego extends javax.swing.JFrame {
             
             long duracion = (System.currentTimeMillis()- inicioms)/1000;
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
-            Jugador j= Menu.getInstance().getJugador();
+          //  Jugador j= Menu.getInstance().getJugador();
             tiempos.add((int)duracion);
             
             
+            //fix shit
+            System.out.println("nombre jugador ganador: "+Menu.jugador.getNombre());
             
-            Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
+           // Menu.getInstance().getLista().agregarTiempo(Menu.jugador.getNombre(),(int) duracion);
+            
+            
+            Menu.jugador.agregarTiempo(tiempos);
+            
+            
+            
             
         }
         }
@@ -303,6 +316,7 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTest = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jStart = new javax.swing.JMenuItem();
@@ -317,17 +331,24 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGap(0, 553, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 768, Short.MAX_VALUE)
         );
 
-        jTest.setText("Probar dificultad");
+        jTest.setText("Reinicio");
         jTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTestActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Jugador actual");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -364,7 +385,9 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTest)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTest)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -373,7 +396,9 @@ public class Juego extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTest)
-                        .addGap(0, 756, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -395,14 +420,34 @@ public class Juego extends javax.swing.JFrame {
        else{
            System.out.println("medio");
        }
+        image=Menu.getImagen();
         
+        System.out.println(image);
        reiniciar();
         
+       
+       
+       
+       
         
     }//GEN-LAST:event_jTestActionPerformed
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        try {
+            Menu.getInstance().getLista().saveData();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         
         
@@ -434,6 +479,15 @@ public class Juego extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jVerTiemposActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        System.out.println(Menu.jugador.getNombre());
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,6 +528,7 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jGuardar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
