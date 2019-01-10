@@ -188,6 +188,7 @@ public class Juego extends javax.swing.JFrame {
                 count++;
             }
         }
+        inicioms = System.currentTimeMillis();
      }
      
      private void setCards() {
