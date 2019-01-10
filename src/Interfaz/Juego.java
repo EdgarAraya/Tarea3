@@ -20,7 +20,31 @@ public class Juego extends javax.swing.JFrame {
     /**
      * Creates new form Juego
      */
+    private static Juego p;
+    private String image;
+    
+    
+    public static Juego getInstance(){
+        if(p==null){
+            p= new Juego();
+        }
+        return p;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public Juego() {
+        
+        image=Menu.getImagen();
+        
+        System.out.println(image);
+        
         initComponents();
         Botones();
         setCards();
@@ -46,7 +70,7 @@ public class Juego extends javax.swing.JFrame {
         int count=0;
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
-                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[count]+".jpg")));
+                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
                 count++;
             }
         }
@@ -54,6 +78,16 @@ public class Juego extends javax.swing.JFrame {
     } 
      
     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     
     
     @SuppressWarnings("unchecked")
@@ -61,6 +95,11 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,8 +111,23 @@ public class Juego extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 523, Short.MAX_VALUE)
         );
+
+        jMenu1.setText("Juegos");
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +141,7 @@ public class Juego extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(53, 53, 53)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -131,6 +185,11 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

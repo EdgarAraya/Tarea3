@@ -53,8 +53,10 @@ public class NuevoJugador extends javax.swing.JFrame {
 
         jDialog1.setTitle("Error");
         jDialog1.setFont(new java.awt.Font("Agency FB", 1, 10)); // NOI18N
+        jDialog1.setForeground(new java.awt.Color(255, 0, 0));
+        jDialog1.setIconImage(null);
         jDialog1.setLocation(new java.awt.Point(5, 6));
-        jDialog1.setMinimumSize(new java.awt.Dimension(100, 100));
+        jDialog1.setMinimumSize(new java.awt.Dimension(150, 120));
         jDialog1.setSize(new java.awt.Dimension(6, 6));
 
         jLabel2.setText("Nombre Inválido");
@@ -63,17 +65,17 @@ public class NuevoJugador extends javax.swing.JFrame {
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);

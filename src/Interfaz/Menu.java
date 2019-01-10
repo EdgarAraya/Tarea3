@@ -32,7 +32,13 @@ public class Menu extends javax.swing.JFrame {
     private static Menu p;
     private static boolean dificultad;
     
+    private static String imagen;
+    
     private static ListaJugadores lista;
+
+    public static String getImagen() {
+        return imagen;
+    }
     
     
     
@@ -54,6 +60,17 @@ public class Menu extends javax.swing.JFrame {
         return p;
     }
 
+    public  String getjTema() {
+        
+        int a=jTemas.getSelectedIndex();
+        
+        System.out.println(a);
+        return "Imagenes"+(a+1);
+        
+        
+        
+    }
+    
     public static boolean isDificultad() {
         return dificultad;
     }
@@ -283,7 +300,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jTemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disney", "Animales", "Los Simpsons"}));
+        jTemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Animales", "Disney", "Los Simpsons"}));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -445,7 +462,11 @@ public class Menu extends javax.swing.JFrame {
     private void jJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugarActionPerformed
         // TODO add your handling code here:
         
+        imagen=this.getjTema();
         
+        
+        
+        Juego.getInstance().setVisible(true);
         
         
         
@@ -468,7 +489,7 @@ public class Menu extends javax.swing.JFrame {
         
         System.out.println(lista.toString());
         
-        
+        System.out.println(this.getjTema());
         
         try {
             lista.saveData();

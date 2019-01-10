@@ -64,7 +64,6 @@ public class Boton extends JButton implements ActionListener{
             if(im1.getDescription().compareTo(im2.getDescription()) != 0) {
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
-               
             }
             caraUp = false;
         }
