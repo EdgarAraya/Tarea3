@@ -1,0 +1,5 @@
+Sin Nombre;20;40;60;80
+John;6;7;9
+Ding Dong;100;20;5
+Zeta;66;78
+Tom;18;17
