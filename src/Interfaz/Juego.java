@@ -31,6 +31,19 @@ public class Juego extends javax.swing.JFrame {
     private int filas;
     private int columnas;
     
+    private boolean basico;
+
+    public boolean isBasico() {
+        return basico;
+    }
+
+    public void setBasico(boolean basico) {
+        this.basico = basico;
+    }
+    
+    
+    
+    
     
     private String image;
     
@@ -296,6 +309,9 @@ public class Juego extends javax.swing.JFrame {
 
     private void jTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTestActionPerformed
         // TODO add your handling code here:
+        
+        System.out.println(basico);
+        
         
        if (Menu.isDificultad()){
            System.out.println("basico");

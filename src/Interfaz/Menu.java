@@ -488,7 +488,7 @@ public class Menu extends javax.swing.JFrame {
         
         imagen=this.getjTema();
         
-        
+        Juego.getInstance().setBasico(dificultad);
         
         Juego.getInstance().setVisible(true);
         
