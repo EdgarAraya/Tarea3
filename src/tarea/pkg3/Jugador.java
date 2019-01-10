@@ -66,7 +66,7 @@ public class Jugador implements Comparable<Jugador> {
                 }      
         }
         else{
-            return this.nombre + " 0";
+            return this.nombre + ";";
         }
         
         return datos;

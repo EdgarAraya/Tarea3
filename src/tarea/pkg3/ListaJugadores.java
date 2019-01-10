@@ -118,7 +118,40 @@ public class ListaJugadores {
 
 }
          
-         
+       public boolean agregarTiempo(String nombre,int tiempo)  {
+           
+           Jugador jug= new Jugador(nombre);
+           
+           if( this.jugadores.contains(jug)){
+               
+               for (Jugador j:jugadores){
+                   
+                  if(j.getNombre().equalsIgnoreCase(nombre)){
+                      j.agregarTiempo(tiempo);
+                      return true;
+                  }
+                   
+                   
+                   
+               }
+               
+               
+           }
+           
+               return false;
+           
+           
+           
+           
+           
+       }
+    
+    
+    
+    
+    
+    
+    
          
          
          

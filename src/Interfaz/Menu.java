@@ -33,6 +33,10 @@ public class Menu extends javax.swing.JFrame {
     private static boolean dificultad;
     
     private static ListaJugadores lista;
+    
+    
+    
+    
 
     public static ListaJugadores getLista() {
         return lista;
@@ -69,22 +73,31 @@ public class Menu extends javax.swing.JFrame {
     public void fillJugadores()
    {
        ArrayList<String> nombres= lista.getNombres();
-       System.out.println( System.getProperty("user.dir"));
+      
        
-       System.out.println(nombres.size());
+       System.out.println(nombres);
        System.out.println("hey"+lista.size());
        
+       
+       /*
        for (int i=0;i< nombres.size();i++){
-           
-          
+
         if ( jJugadores.getItemAt(i) == null )//parche          
                  {
                     jJugadores.addItem(nombres.get(i));
                  }
+       }
+       */
+       if(jJugadores.getItemCount()>0){
+            jJugadores.removeAllItems();
+       }
        
-       
-       
-       
+       for (int i=0;i< nombres.size();i++){
+
+        if ( jJugadores.getItemAt(i) == null )//parche          
+                 {
+                    jJugadores.addItem(nombres.get(i));
+                 }
        }
        
        
@@ -212,6 +225,11 @@ public class Menu extends javax.swing.JFrame {
         jJugar = new javax.swing.JButton();
         test = new javax.swing.JComboBox<>();
         bla = new javax.swing.JButton();
+        jAddTiempo = new javax.swing.JButton();
+        jTiempo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jConsola = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -314,6 +332,24 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jAddTiempo.setText("agregar tiempo");
+        jAddTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAddTiempoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("borrar combo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jConsola.setColumns(20);
+        jConsola.setRows(5);
+        jScrollPane1.setViewportView(jConsola);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -332,9 +368,22 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(bla)
                 .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jAddTiempo)))
                 .addGap(43, 43, 43))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +400,14 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(bla))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jAddTiempo)
+                    .addComponent(jTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -401,6 +457,42 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_blaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        jJugadores.removeAllItems();
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jAddTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddTiempoActionPerformed
+        // TODO add your handling code here:
+        
+        int tiempo= Integer.parseInt(jTiempo.getText());
+        int a;
+        a=jJugadores.getSelectedIndex();
+        
+        ArrayList<String> nombres= lista.getNombres();
+        
+        
+        
+        System.out.println(nombres);
+        
+        System.out.println(nombres.get(a));
+        
+         
+        
+        
+        
+        lista.agregarTiempo(nombres.get(a), tiempo);
+        Jugador nuevo=  lista.buscarJugador(nombres.get(a));
+        jConsola.setText(nuevo.toString());
+        
+        
+        
+    }//GEN-LAST:event_jAddTiempoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -439,6 +531,9 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bla;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jAddTiempo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JTextArea jConsola;
     private javax.swing.JButton jCrear;
     private javax.swing.JRadioButton jDificultad1;
     private javax.swing.JRadioButton jDificultad2;
@@ -447,7 +542,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jTemas;
+    private javax.swing.JTextField jTiempo;
     private javax.swing.JComboBox<String> test;
     // End of variables declaration//GEN-END:variables
 }
