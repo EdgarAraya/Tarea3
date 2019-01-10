@@ -117,19 +117,20 @@ public class Menu extends javax.swing.JFrame {
               tiempos.add(sc.nextInt());
               
           }
-              
-              
-           System.out.println(nombre);
-           System.out.println(tiempos.toString());
+
+           System.out.println("nombre"+nombre);
+           
            
            Jugador nuevo= new Jugador(nombre);
            nuevo.setTiempos(tiempos);
             System.out.println(nuevo);
-            System.out.println(lista.agregarJugador(nuevo));
-            System.out.println("sss"+lista.size());
+            System.out.println("agrega "+lista.agregarJugador(nuevo));
+           
            
         }
-
+        
+        
+            System.out.println("size"+lista.size());
         sc.close();
 
     } catch (FileNotFoundException e) {
@@ -160,6 +161,9 @@ public class Menu extends javax.swing.JFrame {
         
         System.out.println(test);
       
+        lista= test;
+        
+        
     }
     
     
@@ -171,18 +175,19 @@ public class Menu extends javax.swing.JFrame {
     
     
     public Menu() {
-        loadData();
+        //loadData();
        // Jugador unnamed=new Jugador("Sin Nombre");
         
        // lista = new ListaJugadores();
        // System.out.println(lista.agregarJugador(unnamed));
-        
+       
+        loadData2();
     
         initComponents();
         
         fillJugadores();
         
-       // loadData2();
+        //loadData2();
         
     }
 

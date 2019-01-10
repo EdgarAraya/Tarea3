@@ -29,6 +29,7 @@ public class Util {
                 h.agregarTiempo(Integer.parseInt(parts[i].trim()));
             }
             lista.agregarJugador(h);
+            
         }
         return lista;
     }

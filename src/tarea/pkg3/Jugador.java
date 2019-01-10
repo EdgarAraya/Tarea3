@@ -58,11 +58,11 @@ public class Jugador implements Comparable<Jugador> {
         
         
         if (this.tiempos.size()!=0){
-        datos+= this.nombre+";";
+        datos+= this.nombre;
                 
                 for(int i =0; i < this.totalJuegos();i++){
                     
-                    datos+=tiempos.get(i)+";";   
+                    datos+=";"+tiempos.get(i);   
                 }      
         }
         else{
