@@ -84,20 +84,23 @@ public class Menu extends javax.swing.JFrame {
     
     public   Jugador getJugador(){
         
-        int a;
-        a = jJugadores.getSelectedIndex();
         
-        System.out.println("jugador"+ a);
-        ArrayList<String> nombres= lista.getNombres();
-                
-              nombres.get(a);
-                
-        Menu.jugador=lista.buscarJugador(nombres.get(a));
+        if(jJugadores.getItemCount()>0){
+            int a;
+            a = jJugadores.getSelectedIndex();
+
+            System.out.println("jugador"+ a);
+            ArrayList<String> nombres= lista.getNombres();
+
+                  nombres.get(a);
+
+            Menu.jugador=lista.buscarJugador(nombres.get(a));
+
+            return lista.buscarJugador(nombres.get(a));
         
-        return lista.buscarJugador(nombres.get(a));
-        
-                
-                
+             
+        }
+           return null;     
                 
     }
 
@@ -499,15 +502,18 @@ public class Menu extends javax.swing.JFrame {
         jugador= getJugador();
         
         
-        Juego Juego = new Juego();
+        
+        //Juego Juego = new Juego();
+        
+        
         
         Juego.getInstance().setTitle("Juego de "+jugador.getNombre());
         
         Juego.setBasico(dificultad);
         
-        System.out.println("ga"+Juego.getInstance().isBasico());
+        System.out.println("dificultad "+Juego.getInstance().isBasico());
         
-        
+        Juego.setFilas();
         
         Juego.getInstance().setVisible(true);
         

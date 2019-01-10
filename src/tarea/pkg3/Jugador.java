@@ -78,6 +78,15 @@ public class Jugador implements Comparable<Jugador> {
         tiempos.add(tiempo);
     }
     
+    public void agregarTiempo(ArrayList<Integer> tiempos){
+        for (int i=0; i < tiempos.size();i++){
+            this.agregarTiempo(tiempos.get(i));
+            
+        }
+    }
+    
+    
+    
     public int mejorTiempo(){
        Collections.sort(this.tiempos);
         return this.tiempos.get(0);

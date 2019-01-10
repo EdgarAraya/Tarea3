@@ -30,7 +30,7 @@ public class Juego extends javax.swing.JFrame {
      */
     private static Juego p;
     private static int filas=6;
-    private static int columnas = 4;
+    private static int columnas=4;
     
     
     
@@ -52,9 +52,9 @@ public class Juego extends javax.swing.JFrame {
 
     public static void setFilas() {
         if(basico){
-            Juego.filas=4;
+            filas=4;
         }else{
-            Juego.filas=6;
+            filas=6;
         }
     }
 
@@ -99,7 +99,7 @@ public class Juego extends javax.swing.JFrame {
      long inicioms = System.currentTimeMillis();
      
     public void Botones(){
-       // System.out.println("afuwea de i");
+       
         for(int i=0; i<filas; i++){
             
           //  System.out.println("adentro de i");
@@ -132,7 +132,7 @@ public class Juego extends javax.swing.JFrame {
                     @Override
                     public void mouseExited(MouseEvent e) {
                     compare();
-                              System.out.println("aah"); 
+                               
                     }
                 };
                     botones[i][j].addMouseListener(uno);
@@ -282,6 +282,9 @@ public class Juego extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
             Jugador j= Menu.getInstance().getJugador();
             tiempos.add((int)duracion);
+            
+            
+            
             Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
             
         }
@@ -308,17 +311,17 @@ public class Juego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 51));
-        setLocation(new java.awt.Point(500, 200));
+        setLocation(new java.awt.Point(500, 50));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 756, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
 
         jTest.setText("Probar dificultad");
@@ -342,6 +345,11 @@ public class Juego extends javax.swing.JFrame {
         jMenu1.add(jGuardar);
 
         jVerTiempos.setText("Ver tiempos");
+        jVerTiempos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jVerTiemposActionPerformed(evt);
+            }
+        });
         jMenu1.add(jVerTiempos);
 
         jMenuBar1.add(jMenu1);
@@ -354,19 +362,21 @@ public class Juego extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTest)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTest)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTest)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTest)
+                        .addGap(0, 756, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -402,6 +412,28 @@ public class Juego extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jGuardarActionPerformed
+
+    private void jVerTiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVerTiemposActionPerformed
+        // TODO add your handling code here:
+        
+        System.out.println(Menu.jugador);
+        
+        JOptionPane.showMessageDialog(this, "Jugador: "+Menu.jugador.getNombre()+
+                                            "\nTiempo Promedio: "+Menu.jugador.tiempoPromedio()+
+                                            "\nMejor Tiempo: "+Menu.jugador.mejorTiempo()
+        
+        
+        
+        
+        
+        );
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jVerTiemposActionPerformed
 
     /**
      * @param args the command line arguments

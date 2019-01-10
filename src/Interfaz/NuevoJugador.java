@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
 import tarea.pkg3.Jugador;
 
 /**
@@ -144,7 +145,9 @@ public class NuevoJugador extends javax.swing.JFrame {
     private void jAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAceptarActionPerformed
         // TODO add your handling code here:
         if (jNombre.getText().isEmpty()){
-            jDialog1.setVisible(true);
+            //jDialog1.setVisible(true);
+            JOptionPane.showMessageDialog(this, "Error:Campo esta vacío.");
+                    
         }
         else{
             
