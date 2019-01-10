@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -30,6 +31,10 @@ public class Juego extends javax.swing.JFrame {
     private static Juego p;
     private static int filas=6;
     private static int columnas = 4;
+    
+    
+    
+    
     
     private static boolean basico;
 
@@ -73,7 +78,7 @@ public class Juego extends javax.swing.JFrame {
         
         setFilas();
         
-       
+       //this.setTitle("Juego de"+Menu.getInstance().getJugador().getNombre());
         //botones= new Boton [filas][columnas];
         
         
@@ -101,7 +106,7 @@ public class Juego extends javax.swing.JFrame {
             for(int j=0; j<columnas; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
                 jPanel1.add(botones[i][j]);
-                    System.out.println(i+","+j);
+                    //System.out.println(i+","+j);
                 
                     MouseListener uno = new MouseListener() {
                     @Override
@@ -326,6 +331,11 @@ public class Juego extends javax.swing.JFrame {
         jMenu1.add(jStart);
 
         jGuardar.setText("Guardar juegos");
+        jGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jGuardarActionPerformed(evt);
+            }
+        });
         jMenu1.add(jGuardar);
 
         jVerTiempos.setText("Ver tiempos");
@@ -377,6 +387,18 @@ public class Juego extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jTestActionPerformed
+
+    private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jGuardarActionPerformed
 
     /**
      * @param args the command line arguments

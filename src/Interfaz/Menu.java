@@ -31,7 +31,7 @@ public class Menu extends javax.swing.JFrame {
     
     private static Menu p;
     private static boolean dificultad=true;
-    
+    public static Jugador jugador;
     private static String imagen;
     
     private static ListaJugadores lista;
@@ -82,14 +82,17 @@ public class Menu extends javax.swing.JFrame {
         Menu.dificultad = dificultad;
     }
     
-    public  Jugador getJugador(){
+    public   Jugador getJugador(){
         
-        int a=jJugadores.getSelectedIndex();
+        int a;
+        a = jJugadores.getSelectedIndex();
         
+        System.out.println("jugador"+ a);
         ArrayList<String> nombres= lista.getNombres();
                 
               nombres.get(a);
                 
+        Menu.jugador=lista.buscarJugador(nombres.get(a));
         
         return lista.buscarJugador(nombres.get(a));
         
@@ -346,6 +349,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jugador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+        jJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jJugadoresActionPerformed(evt);
+            }
+        });
 
         jCrear.setText("Crear Nuevo Jugador");
         jCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -488,7 +496,12 @@ public class Menu extends javax.swing.JFrame {
         
         imagen=this.getjTema();
         
+        jugador= getJugador();
+        
+        
         Juego Juego = new Juego();
+        
+        Juego.getInstance().setTitle("Juego de "+jugador.getNombre());
         
         Juego.setBasico(dificultad);
         
@@ -514,13 +527,18 @@ public class Menu extends javax.swing.JFrame {
 
     private void blaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blaActionPerformed
         // TODO add your handling code here:
-        
+        System.out.println(this.getJugador());
         fillJugadores();
         
         System.out.println(lista.toString());
         
         System.out.println(this.getjTema());
         
+        
+        
+        
+        
+        /*
         try {
             lista.saveData();
         } catch (FileNotFoundException ex) {
@@ -532,7 +550,7 @@ public class Menu extends javax.swing.JFrame {
         }
         
         
-        
+        */
         
         
     }//GEN-LAST:event_blaActionPerformed
@@ -614,6 +632,18 @@ public class Menu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jDificultad1ActionPerformed
+
+    private void jJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugadoresActionPerformed
+        // TODO add your handling code here:
+        
+        jJugadores.getSelectedIndex();
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jJugadoresActionPerformed
 
     /**
      * @param args the command line arguments
