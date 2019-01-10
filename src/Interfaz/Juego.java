@@ -34,10 +34,7 @@ public class Juego extends javax.swing.JFrame {
     
     private String image;
     
-    private int filas;
-    private int columnas;
-    
-    
+ 
     
     public static Juego getInstance(){
         if(p==null){
