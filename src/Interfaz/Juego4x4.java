@@ -77,15 +77,6 @@ public class Juego4x4 extends javax.swing.JFrame {
         boton15.setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[14]+".jpg")));
         boton16.setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[15]+".jpg")));
         
-        
-       
-        
-        
-        
-        
-        
-        
-        
     } 
     
     
