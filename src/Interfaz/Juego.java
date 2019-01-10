@@ -34,7 +34,7 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
-    private static int filas=6;
+    private static int filas;
     private static int columnas=4;
     
     
@@ -56,10 +56,19 @@ public class Juego extends javax.swing.JFrame {
     }
 
     public static void setFilas() {
+        
+        System.out.println("setfilas-");
+        System.out.println("basico: "+basico);
+        
+        basico=Menu.isDificultad();
+        
+        
+        
         if(basico){
-            filas=4;
+            System.out.println("estoy en basico");
+            Juego.filas=4;
         }else{
-            filas=6;
+            Juego.filas=6;
         }
     }
 
@@ -80,8 +89,14 @@ public class Juego extends javax.swing.JFrame {
         
         System.out.println(image);
         
+        System.out.println("antes filas:"+filas);
+        
+        
         
         setFilas();
+        System.out.println("despues filas:"+filas);
+        botones= new Boton [filas][columnas];
+        
         
        //this.setTitle("Juego de"+Menu.getInstance().getJugador().getNombre());
         //botones= new Boton [filas][columnas];
@@ -95,12 +110,12 @@ public class Juego extends javax.swing.JFrame {
         
         Botones();
         
-       ;
+       
         setCards();
  
     }
     
-    Boton [] [] botones = new Boton [filas][columnas];
+    Boton [] [] botones ;
      long inicioms = System.currentTimeMillis();
      
     public void Botones(){
@@ -355,6 +370,11 @@ public class Juego extends javax.swing.JFrame {
         jMenu1.setText("Juegos");
 
         jStart.setText("Jugar");
+        jStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jStartActionPerformed(evt);
+            }
+        });
         jMenu1.add(jStart);
 
         jGuardar.setText("Guardar juegos");
@@ -489,6 +509,21 @@ public class Juego extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jStartActionPerformed
+
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */

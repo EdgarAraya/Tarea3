@@ -517,12 +517,12 @@ public class Menu extends javax.swing.JFrame {
         
         
         Juego.getInstance().setTitle("Juego de "+jugador.getNombre());
-        
+        System.out.println("basico en menu: "+dificultad);
         Juego.setBasico(dificultad);
         
-        System.out.println("dificultad "+Juego.getInstance().isBasico());
+        //System.out.println("dificultad "+Juego.getInstance().isBasico());
         
-        Juego.setFilas();
+        //Juego.setFilas();
         
         Juego.getInstance().setVisible(true);
         
