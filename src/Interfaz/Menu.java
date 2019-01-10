@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
      */
     
     private static Menu p;
-    private static boolean dificultad;
+    private static boolean dificultad=true;
     
     private static String imagen;
     
@@ -72,7 +72,10 @@ public class Menu extends javax.swing.JFrame {
     }
     
     public static boolean isDificultad() {
+        
         return dificultad;
+       
+        
     }
 
     public static void setDificultad(boolean dificultad) {
@@ -250,6 +253,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jDificultad1 = new javax.swing.JRadioButton();
         jDificultad2 = new javax.swing.JRadioButton();
+        jtestd = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jTemas = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
@@ -273,9 +277,26 @@ public class Menu extends javax.swing.JFrame {
         buttonGroup1.add(jDificultad1);
         jDificultad1.setSelected(true);
         jDificultad1.setText("Básico");
+        jDificultad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDificultad1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jDificultad2);
         jDificultad2.setText("Medio");
+        jDificultad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDificultad2ActionPerformed(evt);
+            }
+        });
+
+        jtestd.setText("dif");
+        jtestd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtestdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -286,7 +307,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jDificultad1)
                 .addGap(18, 18, 18)
                 .addComponent(jDificultad2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jtestd)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +317,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jDificultad1)
-                    .addComponent(jDificultad2))
+                    .addComponent(jDificultad2)
+                    .addComponent(jtestd))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -453,7 +477,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -554,6 +578,37 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTest4ActionPerformed
 
+    private void jtestdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtestdActionPerformed
+        // TODO add your handling code here:
+        
+        if( this.isDificultad()){
+            System.out.println("basico");
+        }else{
+            System.out.println("medio");
+        }
+        
+        
+        
+    }//GEN-LAST:event_jtestdActionPerformed
+
+    private void jDificultad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDificultad2ActionPerformed
+        // TODO add your handling code here:
+        
+        dificultad=jDificultad1.isSelected();
+        
+        
+        
+        
+    }//GEN-LAST:event_jDificultad2ActionPerformed
+
+    private void jDificultad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDificultad1ActionPerformed
+        // TODO add your handling code here:
+        
+        dificultad=jDificultad1.isSelected();
+        
+        
+    }//GEN-LAST:event_jDificultad1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -607,6 +662,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jTemas;
     private javax.swing.JButton jTest4;
     private javax.swing.JTextField jTiempo;
+    private javax.swing.JToggleButton jtestd;
     private javax.swing.JComboBox<String> test;
     // End of variables declaration//GEN-END:variables
 }

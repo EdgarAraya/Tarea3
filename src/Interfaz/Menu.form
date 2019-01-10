@@ -98,7 +98,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,6 +124,8 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jDificultad2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jtestd" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -134,6 +136,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jDificultad1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jDificultad2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtestd" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -149,6 +152,9 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="B&#xe1;sico"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDificultad1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jDificultad2">
           <Properties>
@@ -157,6 +163,17 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Medio"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDificultad2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="jtestd">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="dif"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtestdActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
