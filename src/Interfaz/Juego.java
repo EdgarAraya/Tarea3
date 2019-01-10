@@ -157,24 +157,23 @@ public class Juego extends javax.swing.JFrame {
     
     
        private void ganador() {
-        if(!botones[0][0].isEnabled() && !botones[0][1].isEnabled() && !botones[0][2].isEnabled() && !botones[0][3].isEnabled() && !botones[1][0].isEnabled() && !botones[1][1].isEnabled() && 
-            !botones[1][2].isEnabled() && !botones[1][3].isEnabled() && !botones[2][0].isEnabled() && !botones[2][1].isEnabled() && !botones[2][2].isEnabled() && !botones[2][3].isEnabled() && 
-                !botones[3][0].isEnabled() && !botones[3][1].isEnabled() && !botones[3][2].isEnabled() && !botones[3][3].isEnabled()) {
+           int count = 0;
+           for(int i=0; i<4; i++){
+            for(int j=0; j<4; j++){
+               if(!botones[i][j].isEnabled()){
+                    count++;
+                }
+            }
+        }
+        if(count==16) {
             
             long duracion = (System.currentTimeMillis()- inicioms)/1000;
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
-         
-            
             Jugador j= Menu.getInstance().getJugador();
-            
-            
-            
-            
-            
             Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
             
         }
-    }
+        }
      
      
      
