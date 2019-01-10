@@ -93,6 +93,7 @@ public class Juego extends javax.swing.JFrame {
                     @Override
                     public void mouseExited(MouseEvent e) {
                         botones[i][j].compare();
+                               
                     }
                 };
                     botones[i][j].addMouseListener(uno);
