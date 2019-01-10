@@ -237,7 +237,19 @@ public class Juego extends javax.swing.JFrame {
      } 
      
     
-    
+     public void reiniciar(){
+        for(int i=0; i<filas; i++){
+            for(int j=0; j<columnas; j++){
+               botones[i][j].setEnabled(true);
+            }
+            primerc=false;
+            caraUp=false;
+            
+            CodigoJuego log =new CodigoJuego();
+            setCards();
+        }
+        }
+     
        private void ganador() {
            int count = 0;
            for(int i=0; i<filas; i++){
@@ -351,6 +363,7 @@ public class Juego extends javax.swing.JFrame {
            System.out.println("medio");
        }
         
+       reiniciar();
         
         
     }//GEN-LAST:event_jTestActionPerformed
