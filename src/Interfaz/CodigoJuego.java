@@ -17,7 +17,6 @@ public class CodigoJuego {
         int size=filas*columnas;
         int[] numbers = new int[size];
         int count = 0;
-        
         while(count < size) {
             Random r = new Random();
             int na = r.nextInt(size/2) + 1;
@@ -32,7 +31,6 @@ public class CodigoJuego {
                 numbers[count] = na;
                 count++;
             }//fin
-            
         }
         
         

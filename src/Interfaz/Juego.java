@@ -74,7 +74,7 @@ public class Juego extends javax.swing.JFrame {
         setFilas();
         
        
-        
+        //botones= new Boton [filas][columnas];
         
         
         System.out.println(filas);
@@ -127,7 +127,7 @@ public class Juego extends javax.swing.JFrame {
                     @Override
                     public void mouseExited(MouseEvent e) {
                     compare();
-                               
+                              System.out.println("aah"); 
                     }
                 };
                     botones[i][j].addMouseListener(uno);
@@ -284,9 +284,9 @@ public class Juego extends javax.swing.JFrame {
         jTest = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jStart = new javax.swing.JMenuItem();
+        jGuardar = new javax.swing.JMenuItem();
+        jVerTiempos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 51));
@@ -312,14 +312,14 @@ public class Juego extends javax.swing.JFrame {
 
         jMenu1.setText("Juegos");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
+        jStart.setText("Jugar");
+        jMenu1.add(jStart);
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        jGuardar.setText("Guardar juegos");
+        jMenu1.add(jGuardar);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu1.add(jMenuItem3);
+        jVerTiempos.setText("Ver tiempos");
+        jMenu1.add(jVerTiempos);
 
         jMenuBar1.add(jMenu1);
 
@@ -396,6 +396,9 @@ public class Juego extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Juego().setVisible(true);
@@ -404,12 +407,12 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jGuardar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jStart;
     private javax.swing.JButton jTest;
+    private javax.swing.JMenuItem jVerTiempos;
     // End of variables declaration//GEN-END:variables
 }
