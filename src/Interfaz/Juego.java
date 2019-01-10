@@ -28,7 +28,7 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
-    private int filas;
+    private int filas=4;
     private int columnas = 4;
     
     private boolean basico;
@@ -46,7 +46,7 @@ public class Juego extends javax.swing.JFrame {
     }
 
     public void setFilas() {
-        if(isBasico()){
+        if(basico){
             this.filas=4;
         }else{
             this.filas=6;
@@ -70,23 +70,33 @@ public class Juego extends javax.swing.JFrame {
         
         System.out.println(image);
         
+        
+        setFilas();
+        
+        System.out.println(filas);
         initComponents();
         
-        
-        
+        System.out.println(filas);
+        System.out.println("antes de botones");
         Botones();
+        
+        System.out.println("despues de botones");
         setCards();
  
     }
     
     Boton [] [] botones = new Boton [filas][columnas];
      long inicioms = System.currentTimeMillis();
+     
     public void Botones(){
+       // System.out.println("afuwea de i");
         for(int i=0; i<filas; i++){
+            
+          //  System.out.println("adentro de i");
             for(int j=0; j<columnas; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
                 jPanel1.add(botones[i][j]);
- 
+                    System.out.println(i+","+j);
                 
                     MouseListener uno = new MouseListener() {
                     @Override
@@ -116,7 +126,13 @@ public class Juego extends javax.swing.JFrame {
                     }
                 };
                     botones[i][j].addMouseListener(uno);
+                    
+               //     System.out.println("fin");
+                    
             }
+            
+            
+            
         }
     }
     
@@ -325,7 +341,7 @@ public class Juego extends javax.swing.JFrame {
            System.out.println("basico");
        }
        else{
-           System.out.println("dificl");
+           System.out.println("medio");
        }
         
         
