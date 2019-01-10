@@ -155,7 +155,7 @@ public class NuevoJugador extends javax.swing.JFrame {
             
             Jugador nuevo= new Jugador(nombre);
             System.out.println(nombre);
-            if(Menu.getInstance().getLista().agregarJugador(nuevo)){
+            if(Menu.getLista2().agregarJugador(nuevo)){
                 
                 
                 
