@@ -26,50 +26,18 @@ public class Boton extends JButton implements ActionListener{
     setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/signo.png"))); 
     }
     
-  private boolean caraUp = false;
-    private ImageIcon im1;
-    private ImageIcon im2;
-    private JButton[] pbtn = new JButton[2];
-    private boolean primerc = false;
-
+  
     @Override
     public void actionPerformed(ActionEvent e) {
-        botonEnabled();
+        //
     }
     
     
-      public void botonEnabled() {
-        
-        if(!caraUp) {
-            this.setEnabled(false);
-            im1 = (ImageIcon) this.getDisabledIcon();
-            pbtn[0] = this;
-            caraUp = true;
-            primerc = false;
-        }
-        else {
-            this.setEnabled(false);
-            im2 = (ImageIcon) this.getDisabledIcon();
-            pbtn[1] = this;
-            primerc = true; 
-        }
-    }
-    
-   
-    public void compare() {
-        if(caraUp && primerc) {
-            
-            if(im1.getDescription().compareTo(im2.getDescription()) != 0) {
-                pbtn[0].setEnabled(true);
-                pbtn[1].setEnabled(true);
-               
-            }
-            caraUp = false;
-        }
+     
     }
     
     
    
    
     
-}
+
