@@ -34,7 +34,7 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
-    private static int filas;
+    private static int filas=6;
     private static int columnas=4;
     
     
@@ -284,6 +284,7 @@ public class Juego extends javax.swing.JFrame {
             primerc=false;
             caraUp=false;  
             setCards1();
+            
         }
         }
      
