@@ -83,6 +83,20 @@ public class Juego extends javax.swing.JFrame {
         return p;
     }
     
+    public  void build(){
+        
+        
+        botones= new Boton [filas][columnas];
+        Botones();
+        
+       
+        setCards();
+        
+    }
+    
+    
+    
+    
     public Juego() {
         
         image=Menu.getImagen();
@@ -91,9 +105,9 @@ public class Juego extends javax.swing.JFrame {
         
         System.out.println("antes filas:"+filas);
         
+        System.out.println("CONSTRUCTOr");
         
-        
-        setFilas();
+        //setFilas();
         System.out.println("despues filas:"+filas);
         botones= new Boton [filas][columnas];
         
@@ -115,10 +129,10 @@ public class Juego extends javax.swing.JFrame {
  
     }
     
-    Boton [] [] botones ;
+    private static Boton [] [] botones ;
      long inicioms = System.currentTimeMillis();
      
-    public void Botones(){
+    public  void Botones(){
        
         for(int i=0; i<filas; i++){
             
@@ -218,7 +232,7 @@ public class Juego extends javax.swing.JFrame {
         inicioms = System.currentTimeMillis();
      }
      
-     private void setCards() {
+     public  void setCards() {
         int[] numbers = uno.getCardNumbers(filas,columnas);
         int count=0;
         for(int i=0; i<filas; i++){
@@ -310,10 +324,10 @@ public class Juego extends javax.swing.JFrame {
            // Menu.getInstance().getLista().agregarTiempo(Menu.jugador.getNombre(),(int) duracion);
             
             
-            Menu.jugador.agregarTiempo(tiempos);
+           // Menu.jugador.agregarTiempo(tiempos);
             
-            
-            
+            Menu.getLista2().agregarTiempo(Menu.jugador.getNombre(), (int) duracion);
+            System.out.println(Menu.getLista2().buscarJugador(Menu.jugador.getNombre()).toString());
             
         }
         }
@@ -458,7 +472,7 @@ public class Juego extends javax.swing.JFrame {
         
         
         try {
-            Menu.getInstance().getLista().saveData();
+            Menu.getLista2().saveData();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {

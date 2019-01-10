@@ -47,6 +47,13 @@ public class Menu extends javax.swing.JFrame {
     public  ListaJugadores getLista() {
         return lista;
     }
+    
+    public static ListaJugadores getLista2(){
+        return lista;
+        
+    }
+    
+    
 
     public static void setLista(ListaJugadores lista) {
         Menu.lista = lista;
@@ -514,11 +521,14 @@ public class Menu extends javax.swing.JFrame {
         
         //Juego Juego = new Juego();
         
-        
+        Juego.setFilas();
         
         Juego.getInstance().setTitle("Juego de "+jugador.getNombre());
         System.out.println("basico en menu: "+dificultad);
         Juego.setBasico(dificultad);
+        
+        
+        //Juego.getInstance().build();
         
         //System.out.println("dificultad "+Juego.getInstance().isBasico());
         
