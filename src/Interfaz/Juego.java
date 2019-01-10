@@ -21,6 +21,10 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
+    private int filas;
+    private int columnas;
+    
+    
     private String image;
     
     
@@ -46,6 +50,9 @@ public class Juego extends javax.swing.JFrame {
         System.out.println(image);
         
         initComponents();
+        
+        
+        
         Botones();
         setCards();
         
@@ -101,7 +108,7 @@ public class Juego extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
