@@ -28,7 +28,7 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     private static Juego p;
-    private static int filas=4;
+    private static int filas=6;
     private static int columnas = 4;
     
     private static boolean basico;
@@ -45,11 +45,11 @@ public class Juego extends javax.swing.JFrame {
         return filas;
     }
 
-    public void setFilas() {
+    public static void setFilas() {
         if(basico){
-            this.filas=4;
+            Juego.filas=4;
         }else{
-            this.filas=6;
+            Juego.filas=6;
         }
     }
 
@@ -180,7 +180,7 @@ public class Juego extends javax.swing.JFrame {
     
      
      private void setCards() {
-        int[] numbers = uno.getCardNumbers();
+        int[] numbers = uno.getCardNumbers(filas,columnas);
         int count=0;
         for(int i=0; i<filas; i++){
             for(int j=0; j<columnas; j++){
@@ -247,7 +247,7 @@ public class Juego extends javax.swing.JFrame {
                 }
             }
         }
-        if(count==16) {
+        if(count==filas*columnas) {
             
             long duracion = (System.currentTimeMillis()- inicioms)/1000;
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
@@ -277,6 +277,7 @@ public class Juego extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -286,7 +287,7 @@ public class Juego extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addGap(0, 563, Short.MAX_VALUE)
         );
 
         jTest.setText("Probar dificultad");

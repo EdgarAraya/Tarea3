@@ -13,17 +13,17 @@ import java.util.Random;
  */
 public class CodigoJuego {
     
-    public int[] getCardNumbers() {
-        
-        int[] numbers = new int[16];
+    public int[] getCardNumbers(int filas, int columnas) {
+        int size=filas*columnas;
+        int[] numbers = new int[size];
         int count = 0;
         
-        while(count < 16) {
+        while(count < size) {
             Random r = new Random();
-            int na = r.nextInt(8) + 1;
+            int na = r.nextInt(size/2) + 1;
             int nvr = 0;
             
-            for (int i = 0; i < 16; i++) {
+            for (int i = 0; i < size; i++) {
                 if(numbers[i] == na) {
                     nvr++;
                 }
