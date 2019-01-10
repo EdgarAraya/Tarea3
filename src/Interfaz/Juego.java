@@ -7,11 +7,14 @@ package Interfaz;
 
 import java.awt.Button;
 import java.awt.Event;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import tarea.pkg3.Jugador;
 
 /**
  *
@@ -33,14 +36,6 @@ public class Juego extends javax.swing.JFrame {
         return p;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     public Juego() {
         
         image=Menu.getImagen();
@@ -50,69 +45,136 @@ public class Juego extends javax.swing.JFrame {
         initComponents();
         Botones();
         setCards();
-        
+ 
     }
     
     Boton [] [] botones = new Boton [4][4];
-    
+     long inicioms = System.currentTimeMillis();
     public void Botones(){
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
                 botones [i][j] = new Boton(130*j,130*i,100,120);
-                jPanel1.add(botones[i][j]);
- 
-                
-                    MouseListener uno = new MouseListener() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void mousePressed(MouseEvent e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void mouseReleased(MouseEvent e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void mouseEntered(MouseEvent e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void mouseExited(MouseEvent e) {
-                        botones[i][j].compare();
-                    }
-                };
-                    botones[i][j].addMouseListener(uno);
+                jPanel1.add(botones[i][j]);   
             }
         }
     }
-
+    
     CodigoJuego uno = new CodigoJuego();
-
+    private boolean caraUp = false;
+    private ImageIcon im1;
+    private ImageIcon im2;
+    private JButton[] pbtn = new JButton[2];
+    private boolean primerc = false;
+    
+    
+    public void enabled(JButton btn){
+         if(!caraUp) {
+            btn.setEnabled(false);
+            im1 = (ImageIcon) btn.getDisabledIcon();
+            pbtn[0] = btn;
+            caraUp = true;
+            primerc = false;
+        }
+        else {
+            btn.setEnabled(false);
+            im2 = (ImageIcon) btn.getDisabledIcon();
+            pbtn[1] = btn;
+            primerc = true;
+            ganador();
+        }
+    }
+    
+     private void compare() {
+        if(caraUp && primerc) {
+            
+            if(im1.getDescription().compareTo(im2.getDescription()) != 0) {
+                pbtn[0].setEnabled(true);
+                pbtn[1].setEnabled(true);
+               
+            }
+            caraUp = false;
+        }
+    }
+    
+     
      private void setCards() {
         int[] numbers = uno.getCardNumbers();
         int count=0;
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
-                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
+               // botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../"+image+"/"+numbers[count]+".jpg")));
+                botones [i][j].setDisabledIcon(new ImageIcon(getClass().getResource("../Imagenes1/"+numbers[count]+".jpg")));
                 count++;
             }
         }
         
-    } 
+        
+        for(int i=0; i<4; i++){
+            for(int j=0; j<4; j++){
+                int y=i;
+                int aux=j;
+                botones[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                      enabled(botones[y][aux]);
+                    }
+                });
+            }
+        }
+        
+      for(int i = 0; i<4 ; i++){
+            for(int j=0; j<4; j++){
+                botones[i][j].addMouseListener(new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        //
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        //
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                        //
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                       //
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                       compare();
+                    }
+                });
+            }
+        }
+     } 
      
     
-     
-     
-     
-     
-     
+    
+       private void ganador() {
+        if(!botones[0][0].isEnabled() && !botones[0][1].isEnabled() && !botones[0][2].isEnabled() && !botones[0][3].isEnabled() && !botones[1][0].isEnabled() && !botones[1][1].isEnabled() && 
+            !botones[1][2].isEnabled() && !botones[1][3].isEnabled() && !botones[2][0].isEnabled() && !botones[2][1].isEnabled() && !botones[2][2].isEnabled() && !botones[2][3].isEnabled() && 
+                !botones[3][0].isEnabled() && !botones[3][1].isEnabled() && !botones[3][2].isEnabled() && !botones[3][3].isEnabled()) {
+            
+            long duracion = (System.currentTimeMillis()- inicioms)/1000;
+            JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
+         
+            
+            Jugador j= Menu.getInstance().getJugador();
+            
+            
+            
+            
+            
+            Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
+            
+        }
+    }
      
      
      
@@ -138,7 +200,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGap(0, 619, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
