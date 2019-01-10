@@ -21,12 +21,17 @@ import javax.swing.JOptionPane;
 public class Boton extends JButton implements ActionListener{
     
     public Boton(int posx, int posy, int ancho, int alto){
-    super.setBounds(posx, posy, ancho, alto); 
-    addActionListener(this);
-    setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/signo.png"))); 
-    }
+        super.setBounds(posx, posy, ancho, alto); 
+        this.addActionListener(this);
+        setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/signo.png"))); 
+        }
     
-  
+     private boolean caraUp = false;
+    private ImageIcon im1;
+    private ImageIcon im2;
+    private JButton[] pbtn = new JButton[2];
+    private boolean primerc = false;
+
     @Override
     public void actionPerformed(ActionEvent e) {
         //
