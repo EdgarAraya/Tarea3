@@ -52,7 +52,10 @@ public class NuevoJugador extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         jDialog1.setTitle("Error");
-        jDialog1.setPreferredSize(new java.awt.Dimension(184, 99));
+        jDialog1.setFont(new java.awt.Font("Agency FB", 1, 10)); // NOI18N
+        jDialog1.setLocation(new java.awt.Point(5, 6));
+        jDialog1.setMinimumSize(new java.awt.Dimension(100, 100));
+        jDialog1.setSize(new java.awt.Dimension(6, 6));
 
         jLabel2.setText("Nombre Inválido");
 
@@ -147,9 +150,9 @@ public class NuevoJugador extends javax.swing.JFrame {
             
             Jugador nuevo= new Jugador(nombre);
             System.out.println(nombre);
-            if(Menu.getLista().agregarJugador(nuevo)){
+            if(Menu.getInstance().getLista().agregarJugador(nuevo)){
                 
-                Menu.getInstance().fillJugadores();
+                
                 
             }
             
@@ -157,7 +160,7 @@ public class NuevoJugador extends javax.swing.JFrame {
             
         }
         
-        
+        Menu.getInstance().fillJugadores();
         
         
         

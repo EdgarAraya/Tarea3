@@ -146,6 +146,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="B&#xe1;sico"/>
           </Properties>
         </Component>
@@ -285,7 +286,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="bla">
       <Properties>
-        <Property name="text" type="java.lang.String" value="bla"/>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="blaActionPerformed"/>

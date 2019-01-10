@@ -104,6 +104,7 @@ public class Menu extends javax.swing.JFrame {
        */
        if(jJugadores.getItemCount()>0){
             jJugadores.removeAllItems();
+            System.out.println("borrado");
        }
        
        for (int i=0;i< nombres.size();i++){
@@ -111,6 +112,7 @@ public class Menu extends javax.swing.JFrame {
         if ( jJugadores.getItemAt(i) == null )//parche          
                  {
                     jJugadores.addItem(nombres.get(i));
+                     System.out.println("agregado");
                  }
        }
        
@@ -252,6 +254,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nivel", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         buttonGroup1.add(jDificultad1);
+        jDificultad1.setSelected(true);
         jDificultad1.setText("Básico");
 
         buttonGroup1.add(jDificultad2);
@@ -340,7 +343,7 @@ public class Menu extends javax.swing.JFrame {
 
         test.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        bla.setText("bla");
+        bla.setText("Actualizar");
         bla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blaActionPerformed(evt);
