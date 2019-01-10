@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -148,6 +149,8 @@ public class Juego extends javax.swing.JFrame {
     private JButton[] pbtn = new JButton[2];
     private boolean primerc = false;
     
+    private ArrayList<Integer>tiempos = new ArrayList();
+    
     
     public void enabled(JButton btn){
          if(!caraUp) {
@@ -274,6 +277,7 @@ public class Juego extends javax.swing.JFrame {
             long duracion = (System.currentTimeMillis()- inicioms)/1000;
             JOptionPane.showMessageDialog(this, "Felicidades " + duracion + " segundos");
             Jugador j= Menu.getInstance().getJugador();
+            tiempos.add((int)duracion);
             Menu.getInstance().getLista().agregarTiempo(j.getNombre(),(int) duracion);
             
         }
