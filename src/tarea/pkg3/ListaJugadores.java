@@ -26,23 +26,47 @@ public class ListaJugadores {
     
     public TreeSet<Jugador>jugadores;
     
+    /**
+     * Constructor que crea una Lista de Jugadores
+     */
+    
     public ListaJugadores(){
         this.jugadores = new TreeSet();
     }
 
+    /**
+     * Retorna la lista de jugadores
+     * @return jugadores
+     */
+    
     public TreeSet<Jugador> getJugadores() {
         return jugadores;
     }
+    
+    /**
+     * Retorna tamaño lista jugadores
+     * @return cantidad de jugadores
+     */
     
     public int size(){
         return this.jugadores.size();
     }
     
+    /**
+     * Incorpora un nuevo jugador a la colección
+     * @param nuevo, - jugador que se quiere incorporar
+     * @return true en caso de éxito y false en caso contrario
+     */
     
     
     public boolean agregarJugador(Jugador nuevo){
         return this.jugadores.add(nuevo);
     }
+    
+     /**
+     * Muestra atributos de ListaJugadores en String
+     * @return datos de la lista, nombre y tiempos de Jugador
+     */
     
     @Override
     public String toString(){
@@ -56,6 +80,11 @@ public class ListaJugadores {
         
     }
     
+    /**
+     * Retorna nombre de Jugadores
+     * @return nombre de jugadores
+     */
+    
     public ArrayList<String> getNombres(){
         ArrayList<String> nombres= new ArrayList();
         
@@ -67,6 +96,11 @@ public class ListaJugadores {
         
     }
     
+    /**
+     * Busca un jugador dado su nombre
+     * @param nombre, - nombre del jugador buscado
+     * @return Jugador en caso de éxito y null en caso de que no exista
+     */
     
     public Jugador buscarJugador(String nombre){
         
@@ -78,6 +112,10 @@ public class ListaJugadores {
     return null; 
 
     }
+    
+     /**
+     * Guarda datos en archivo txt
+     */
     
     public void saveData() throws FileNotFoundException, UnsupportedEncodingException, IOException{
         String path=  System.getProperty("user.dir");
@@ -121,7 +159,15 @@ public class ListaJugadores {
 
 
 }
-         
+    
+        
+     /**
+     * Agrega tiempo a un jugador espec{ifico
+     *@param nombre, nombre del jugador del tiempo agregar
+     *@param tiempo, tiempo a gregar al jugador
+     * @return true en caso de haberse agregado, false en caso de que no.
+     */
+    
        public boolean agregarTiempo(String nombre,int tiempo)  {
            
            Jugador jug= new Jugador(nombre);
@@ -151,19 +197,7 @@ public class ListaJugadores {
        }
     
     
-    
-    
-    
-    
-    
-         
-         
-         
-        
-        
-        
-        
-        
+
         
         
         
