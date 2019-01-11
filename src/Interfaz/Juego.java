@@ -7,6 +7,7 @@ package Interfaz;
 
 import java.awt.Button;
 import java.awt.Event;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,7 +31,7 @@ import tarea.pkg3.Jugador;
  */
 
 //test
-public class Juego extends javax.swing.JFrame {
+public class Juego extends javax.swing.JDialog {
 
     /**
      * Creates new form Juego
@@ -100,7 +101,7 @@ public class Juego extends javax.swing.JFrame {
     
     
     public Juego() {
-        
+        this.setModal(true);
         image=Menu.getImagen();
         
         System.out.println(image);
@@ -123,7 +124,7 @@ public class Juego extends javax.swing.JFrame {
         
         System.out.println(filas);
         
-        
+        jPanel1.setLayout(new GridLayout(filas,columnas));
         Botones();
         
        
@@ -218,7 +219,13 @@ public class Juego extends javax.swing.JFrame {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                p=null;
+             
+                Object [] aux ={"Aceptar","Cancelar"};
+                int opcion = JOptionPane.showOptionDialog(rootPane,"Sus últimos "+tiempos.size()+" juegos no se guardarán.\n¿Está seguro(a) que desea salir?","Cierre de Sesión",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,aux,"Aceptar");
+                if(opcion==JOptionPane.YES_OPTION){
+                    dispose();
+                       p=null;
+                }
             }
 
             @Override
@@ -369,6 +376,7 @@ public class Juego extends javax.swing.JFrame {
            // Menu.jugador.agregarTiempo(tiempos);
             
             Menu.getLista2().agregarTiempo(Menu.jugador.getNombre(), (int) duracion);
+            
             System.out.println(Menu.getLista2().buscarJugador(Menu.jugador.getNombre()).toString());
             
         }
@@ -386,15 +394,15 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTest = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jStart = new javax.swing.JMenuItem();
         jGuardar = new javax.swing.JMenuItem();
         jVerTiempos = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 51));
         setLocation(new java.awt.Point(500, 50));
 
@@ -402,24 +410,24 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
+            .addGap(0, 817, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jTest.setText("Reinicio");
-        jTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTestActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Jugador actual");
+        jButton1.setText("Reiniciar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Jugador");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -459,54 +467,29 @@ public class Juego extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTest)
-                    .addComponent(jButton1))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTest)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jButton1)
+                .addGap(37, 37, 37)
+                .addComponent(jButton2)
+                .addContainerGap(639, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTestActionPerformed
-        // TODO add your handling code here:
-        
-        System.out.println(basico);
-        
-        
-       if (Menu.isDificultad()){
-           System.out.println("basico");
-       }
-       else{
-           System.out.println("medio");
-       }
-        image=Menu.getImagen();
-        
-        System.out.println(image);
-       reiniciar();
-        
-       
-       
-       
-       
-        
-    }//GEN-LAST:event_jTestActionPerformed
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // TODO add your handling code here:
@@ -524,7 +507,7 @@ public class Juego extends javax.swing.JFrame {
         }
         
         
-        
+        tiempos.clear();
         
         
         
@@ -556,21 +539,32 @@ public class Juego extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jVerTiemposActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        System.out.println(Menu.jugador.getNombre());
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
         // TODO add your handling code here:
         
         
         
     }//GEN-LAST:event_jStartActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          System.out.println(basico);
+        
+        
+       if (Menu.isDificultad()){
+           System.out.println("basico");
+       }
+       else{
+           System.out.println("medio");
+       }
+        image=Menu.getImagen();
+        
+        System.out.println(image);
+       reiniciar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            System.out.println(Menu.jugador.getNombre());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     
@@ -620,12 +614,12 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jGuardar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem jStart;
-    private javax.swing.JButton jTest;
     private javax.swing.JMenuItem jVerTiempos;
     // End of variables declaration//GEN-END:variables
 }
