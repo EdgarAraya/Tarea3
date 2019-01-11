@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import tarea.pkg3.Jugador;
 import tarea.pkg3.ListaJugadores;
 import tarea.pkg3.Util;
@@ -307,21 +308,12 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jDificultad1 = new javax.swing.JRadioButton();
         jDificultad2 = new javax.swing.JRadioButton();
-        jtestd = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jTemas = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jJugadores = new javax.swing.JComboBox<>();
         jCrear = new javax.swing.JButton();
-        bla = new javax.swing.JButton();
         jJugar = new javax.swing.JButton();
-        test = new javax.swing.JComboBox<>();
-        jAddTiempo = new javax.swing.JButton();
-        jTiempo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jConsola = new javax.swing.JTextArea();
-        jTest4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Memoria");
@@ -345,13 +337,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jtestd.setText("dif");
-        jtestd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtestdActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -361,9 +346,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jDificultad1)
                 .addGap(18, 18, 18)
                 .addComponent(jDificultad2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jtestd)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,9 +354,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jDificultad1)
-                    .addComponent(jDificultad2)
-                    .addComponent(jtestd))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jDificultad2))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -418,13 +400,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        bla.setText("Actualizar Lista");
-        bla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -433,22 +408,16 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bla)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCrear)
-                    .addComponent(bla))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCrear))
         );
 
         jJugar.setText("Jugar");
@@ -458,68 +427,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        test.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jAddTiempo.setText("agregar tiempo");
-        jAddTiempo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAddTiempoActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("borrar combo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jConsola.setColumns(20);
-        jConsola.setRows(5);
-        jScrollPane1.setViewportView(jConsola);
-
-        jTest4.setText("Probar 4x4");
-        jTest4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTest4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jAddTiempo)))
-                .addGap(43, 43, 43))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jTest4)
-                        .addGap(44, 44, 44)
-                        .addComponent(jJugar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,20 +452,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jJugar)
-                    .addComponent(jTest4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jAddTiempo)
-                    .addComponent(jTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jJugar)
+                .addContainerGap())
         );
 
         pack();
@@ -583,105 +494,56 @@ public class Menu extends javax.swing.JFrame {
     private void jCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrearActionPerformed
         // TODO add your handling code here:
         
-        NuevoJugador.getInstance().setVisible(true);
+       // NuevoJugador.getInstance().setVisible(true);
+   
+        
+        String nombre = JOptionPane.showInputDialog("Nombre Jugador:");
+        if(nombre == null) return;
+        if(! nombre.isEmpty()){
+           Jugador nuevo = new Jugador(nombre) ;
+           System.out.println(nombre);
+            if(lista.agregarJugador(nuevo)){
+                listaNombres.add(nombre);
+                
+                for (int i = 0; i < listaNombres.size();i++){
+
+                 if ( jJugadores.getItemAt(i) == null )//parche 
+                     
+                    {
+                        System.out.println("inside if: "+nuevo.getNombre());
+                      jJugadores.addItem(nuevo.getNombre());
+                    }
+                
+                }
+                JOptionPane.showMessageDialog(null,"Jugador "+ nombre+" agregado", "Jugador",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null,"Jugador "+ nombre+" ya esta en la lista", "Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null,"Error: campo esta vacio", "Error",JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        
+        fillJugadores();
+       
+        
+        
+        
+        
         
         
         
     }//GEN-LAST:event_jCrearActionPerformed
 
-    private void blaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blaActionPerformed
-        // TODO add your handling code here:
-        System.out.println(this.getJugador());
-        fillJugadores();
-        
-        System.out.println(lista.toString());
-        
-        System.out.println(this.getjTema());
-        
-        
-        
-        
-        
-        /*
-        try {
-            lista.saveData();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        */
-        
-        
-    }//GEN-LAST:event_blaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        jJugadores.removeAllItems();
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jAddTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddTiempoActionPerformed
-        // TODO add your handling code here:
-        
-        int tiempo= Integer.parseInt(jTiempo.getText());
-        int a;
-        a=jJugadores.getSelectedIndex();
-        
-        ArrayList<String> nombres= lista.getNombres();
-        
-        
-        
-        System.out.println(nombres);
-        
-        System.out.println(nombres.get(a));
-        
-         
-        
-        
-        
-        lista.agregarTiempo(nombres.get(a), tiempo);
-        Jugador nuevo=  lista.buscarJugador(nombres.get(a));
-        jConsola.setText(nuevo.toString());
-        
-        
-        
-    }//GEN-LAST:event_jAddTiempoActionPerformed
-
-    private void jTest4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTest4ActionPerformed
-        // TODO add your handling code here:
-        
-        Juego4x4.getInstance().setVisible(true);
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jTest4ActionPerformed
-
-    private void jtestdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtestdActionPerformed
-        // TODO add your handling code here:
-        
-        System.out.println(imagen);
-        
-        
-        if( this.isDificultad()){
-            System.out.println("basico");
-        }else{
-            System.out.println("medio");
-        }
-        
-        
-        
-    }//GEN-LAST:event_jtestdActionPerformed
-
+    
+    
+    
+    
+    
+    
+    
+    
     private void jDificultad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDificultad2ActionPerformed
         // TODO add your handling code here:
         
@@ -770,11 +632,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bla;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jAddTiempo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextArea jConsola;
     private javax.swing.JButton jCrear;
     private javax.swing.JRadioButton jDificultad1;
     private javax.swing.JRadioButton jDificultad2;
@@ -783,11 +641,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jTemas;
-    private javax.swing.JButton jTest4;
-    private javax.swing.JTextField jTiempo;
-    private javax.swing.JToggleButton jtestd;
-    private javax.swing.JComboBox<String> test;
     // End of variables declaration//GEN-END:variables
 }
