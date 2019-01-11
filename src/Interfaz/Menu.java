@@ -463,6 +463,8 @@ public class Menu extends javax.swing.JFrame {
     private void jJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jJugarActionPerformed
         // TODO add your handling code here:
         
+        if(lista.size()>0){
+        
         imagen=this.getjTema();
         
         //jugador= getJugador();
@@ -487,6 +489,11 @@ public class Menu extends javax.swing.JFrame {
         Juego.getInstance().setVisible(true);
         
         
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Error: No hay jugadores en la lista");
+        
+        }
         
         
     }//GEN-LAST:event_jJugarActionPerformed
