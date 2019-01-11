@@ -510,7 +510,7 @@ public class Juego extends javax.swing.JDialog {
         tiempos.clear();
         
         
-        
+        JOptionPane.showMessageDialog(null, "Se ha guardado la información");
         
         
         
@@ -521,6 +521,8 @@ public class Juego extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         System.out.println(Menu.jugador);
+        
+        if(!Menu.jugador.getTiempos().isEmpty()){
         
         JOptionPane.showMessageDialog(this, "Jugador: "+Menu.jugador.getNombre()+
                                             "\nTiempo Promedio: "+Menu.jugador.tiempoPromedio()+
@@ -534,6 +536,13 @@ public class Juego extends javax.swing.JDialog {
         
         
         
+        }else{
+            JOptionPane.showMessageDialog(this, Menu.jugador.getNombre() +" no tiene tiempos."
+                                            
+        
+    
+        );
+        }
         
         
         
@@ -541,7 +550,19 @@ public class Juego extends javax.swing.JDialog {
 
     private void jStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartActionPerformed
         // TODO add your handling code here:
+          System.out.println(basico);
         
+        
+       if (Menu.isDificultad()){
+           System.out.println("basico");
+       }
+       else{
+           System.out.println("medio");
+       }
+        image=Menu.getImagen();
+        
+        System.out.println(image);
+       reiniciar();
         
         
     }//GEN-LAST:event_jStartActionPerformed
