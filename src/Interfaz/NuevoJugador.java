@@ -178,9 +178,9 @@ public class NuevoJugador extends javax.swing.JFrame {
             }
                
                
-            }
+            }else{
             JOptionPane.showMessageDialog(this, "Error:"+nombre+" ya esta en la lista");
-            
+            }
             
         }
         
