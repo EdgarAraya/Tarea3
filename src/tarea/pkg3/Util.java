@@ -56,7 +56,13 @@ public class Util {
                 for(int i=1;i<aux.length;i++){
                     e.agregarTiempo(Integer.parseInt(aux[i].trim()));
                 }
+                
+                if (!e.getNombre().trim().isEmpty()){
+                
                 lista.agregarJugador(e);
+                
+                }
+                
             }
             JOptionPane.showMessageDialog(null,"Se han cargado datos de:\n"+archivo);
         }catch (IOException e){

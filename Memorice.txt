@@ -1,7 +1,10 @@
 Anacleto;40;45;50;18
 Ding Dong;20;40;60
+King Kong;26
 Pelao;
+r;
 Rata;19
 Ricardo;20;25;30
+rrrr;
 sapo;23
 

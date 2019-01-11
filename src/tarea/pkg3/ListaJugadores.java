@@ -121,9 +121,9 @@ public class ListaJugadores {
         String path=  System.getProperty("user.dir");
         
         String path2= System.getProperty("user.home");
-        
+        System.out.println("test:"+jugadores.first().getNombre());
         if( this.jugadores.first().getNombre().isEmpty()){
-            
+            System.out.println("test:"+jugadores.first().getNombre());
             jugadores.remove(jugadores.first());
             
         }
