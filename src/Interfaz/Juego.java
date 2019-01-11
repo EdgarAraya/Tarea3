@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -111,7 +113,7 @@ public class Juego extends javax.swing.JFrame {
         System.out.println("despues filas:"+filas);
         botones= new Boton [filas][columnas];
         
-        
+        acciones();
        //this.setTitle("Juego de"+Menu.getInstance().getJugador().getNombre());
         //botones= new Boton [filas][columnas];
         
@@ -205,6 +207,45 @@ public class Juego extends javax.swing.JFrame {
             primerc = true;
             ganador();
         }
+    }
+    
+    public void acciones(){
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                //
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                p=null;
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                p=null;
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                //
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                //
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                //
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                //
+            }
+        });
     }
     
      private void compare() {
