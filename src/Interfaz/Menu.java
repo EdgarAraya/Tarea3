@@ -35,6 +35,11 @@ public class Menu extends javax.swing.JFrame {
     private static String imagen;
     
     private static ListaJugadores lista;
+    
+    private static ArrayList<String> listaNombres;
+    
+    
+    
 
     public static String getImagen() {
         return imagen;
@@ -115,21 +120,38 @@ public class Menu extends javax.swing.JFrame {
                 
     }
 
+    public  JComboBox<String> getjJugadores() {
+        return jJugadores;
+    }
+
    
 
-    public   void setjJugadores(JComboBox<String> jJugadores) {
-        this.jJugadores = jJugadores;
+    public static  void setjJugadores(JComboBox<String> jJugadores,String nombre) {
+        jJugadores.addItem(nombre);
+    }
+
+    public static ArrayList<String> getListaNombres() {
+        return listaNombres;
+    }
+
+    public static void setListaNombres(ArrayList<String> listaNombres) {
+        Menu.listaNombres = listaNombres;
     }
     
-    public void fillJugadores()
+    
+    
+    
+    
+    public  void fillJugadores()
    {
-       ArrayList<String> nombres= lista.getNombres();
+      // ArrayList<String> nombres= lista.getNombres();
       
        
-       System.out.println(nombres);
-       System.out.println("hey"+lista.size());
+       System.out.println(listaNombres);
+     //  System.out.println("size "+lista.size());
        
        
+     
        /*
        for (int i=0;i< nombres.size();i++){
 
@@ -139,17 +161,21 @@ public class Menu extends javax.swing.JFrame {
                  }
        }
        */
+       
+       
+       /*temp
        if(jJugadores.getItemCount()>0){
             jJugadores.removeAllItems();
             System.out.println("borrado");
        }
+       */
        
-       for (int i=0;i< nombres.size();i++){
+       for (int i=0;i< listaNombres.size();i++){
 
         if ( jJugadores.getItemAt(i) == null )//parche          
                  {
-                    jJugadores.addItem(nombres.get(i));
-                     System.out.println("agregado");
+                    jJugadores.addItem(listaNombres.get(i));
+                     System.out.println("agregado:"+listaNombres.get(i));
                  }
        }
        
@@ -232,8 +258,7 @@ public class Menu extends javax.swing.JFrame {
         
     }
     
-    
-    
+      
     
      
     
@@ -249,6 +274,10 @@ public class Menu extends javax.swing.JFrame {
        
         loadData2();
     
+        listaNombres= lista.getNombres();
+        
+        System.out.println("array:"+listaNombres);
+        
         initComponents();
         
         fillJugadores();
@@ -256,6 +285,14 @@ public class Menu extends javax.swing.JFrame {
         //loadData2();
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -276,9 +313,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jJugadores = new javax.swing.JComboBox<>();
         jCrear = new javax.swing.JButton();
+        bla = new javax.swing.JButton();
         jJugar = new javax.swing.JButton();
         test = new javax.swing.JComboBox<>();
-        bla = new javax.swing.JButton();
         jAddTiempo = new javax.swing.JButton();
         jTiempo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -381,6 +418,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        bla.setText("Actualizar Lista");
+        bla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -389,7 +433,10 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bla)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -398,7 +445,9 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCrear)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCrear)
+                    .addComponent(bla))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -410,13 +459,6 @@ public class Menu extends javax.swing.JFrame {
         });
 
         test.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        bla.setText("Actualizar");
-        bla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blaActionPerformed(evt);
-            }
-        });
 
         jAddTiempo.setText("agregar tiempo");
         jAddTiempo.addActionListener(new java.awt.event.ActionListener() {
@@ -471,9 +513,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jTest4)
                         .addGap(44, 44, 44)
                         .addComponent(jJugar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bla)
-                        .addGap(35, 35, 35))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -493,7 +533,6 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jJugar)
-                    .addComponent(bla)
                     .addComponent(jTest4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -667,11 +706,11 @@ public class Menu extends javax.swing.JFrame {
         int a;
         a=jJugadores.getSelectedIndex();
         
-        ArrayList<String> nombres= lista.getNombres();
+        //ArrayList<String> nombres= lista.getNombres();
         
         
         
-        jugador= lista.buscarJugador(nombres.get(a));
+        jugador= lista.buscarJugador(listaNombres.get(a));
         
         
         

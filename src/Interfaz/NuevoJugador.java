@@ -157,11 +157,30 @@ public class NuevoJugador extends javax.swing.JFrame {
             System.out.println(nombre);
             if(Menu.getLista2().agregarJugador(nuevo)){
                 
+                Menu.getListaNombres().add(nombre);
                 
                 
+                
+                System.out.println("Jugador "+nuevo.getNombre()+" agregado");
+              // Menu.setjJugadores(Menu.getInstance().getjJugadores(), nombre);
+                
+               for (int i = 0; i < Menu.getListaNombres().size();i++){
+
+                 if ( Menu.getInstance().getjJugadores().getItemAt(i) == null )//parche 
+                     
+                 {
+                     System.out.println("inside if: "+nuevo.getNombre());
+                    Menu.getInstance().getjJugadores().addItem(nuevo.getNombre());
+                 }
+               
+            
+        
             }
-            
-            
+               
+               
+            }else{
+            JOptionPane.showMessageDialog(this, "Error:"+nombre+" ya esta en la lista");
+            }
             
         }
         
