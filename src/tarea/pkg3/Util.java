@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,7 @@ import java.io.IOException;
 public class Util {
     
     public  ListaJugadores cargarJugadores(String archivo) throws FileNotFoundException, IOException{
+        /*
        String k;
         ListaJugadores lista= new ListaJugadores();
         File x= new File(archivo);
@@ -32,6 +34,32 @@ public class Util {
             
         }
         return lista;
+    */
+        ListaJugadores lista = new ListaJugadores();
+        try{
+            File datos = new File(archivo);
+            datos.createNewFile();
+        
+            BufferedReader br = new BufferedReader(new FileReader (datos));
+            String aux[], line;
+            for(line=br.readLine(); line!=null; line=br.readLine()){
+                aux = line.split(";");
+                Jugador e = new Jugador(aux[0].trim());
+                for(int i=1;i<aux.length;i++){
+                    e.agregarTiempo(Integer.parseInt(aux[i].trim()));
+                }
+                lista.agregarJugador(e);
+            }
+            JOptionPane.showMessageDialog(null,"Se han cargado datos de:\n"+archivo);
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null,"no se cargaron datos correctamente");
+        }
+        
+        
+       
+        
+        return lista;
+
     }
     
     public static boolean guardarTiempo(Jugador jugador){

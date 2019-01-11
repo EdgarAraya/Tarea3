@@ -277,7 +277,7 @@ public class Menu extends javax.swing.JFrame {
     
         listaNombres= lista.getNombres();
         
-        System.out.println("array:"+listaNombres);
+        System.out.println("nombres:"+listaNombres);
         
         initComponents();
         

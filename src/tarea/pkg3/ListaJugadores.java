@@ -83,14 +83,22 @@ public class ListaJugadores {
         String path=  System.getProperty("user.dir");
         
         String path2= System.getProperty("user.home");
+        
+        if( this.jugadores.first().getNombre().isEmpty()){
+            
+            jugadores.remove(jugadores.first());
+            
+        }
+        
+        
         //t}guardar en carpeta proyecto
         // try (PrintWriter writer = new PrintWriter(path+"\\Memorice_test.txt", "UTF-8"))
-        System.out.println("guardado en"+path2);
+        System.out.println("guardado en "+path);
         
         
-        try (PrintWriter writer = new PrintWriter(path2+"\\Memorice_test.txt", "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter(path+"\\Memorice.txt", "UTF-8")) {
             writer.println(this.toString());
-            System.out.println("here");
+            System.out.println("fin");
         }
         
         
@@ -111,12 +119,7 @@ public class ListaJugadores {
         
         
          /*
-            FileWriter fileWriter = new FileWriter(path+"\\the-file-name.txt");
-        PrintWriter printWriter = new PrintWriter(fileWriter);
-        printWriter.print("Some String\r\n");
-        printWriter.printf("Product name is %s and its price is %d $", "iPhone", 1000);
-        printWriter.close();
-
+          
         */
 
 

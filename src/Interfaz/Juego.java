@@ -510,7 +510,7 @@ public class Juego extends javax.swing.JDialog {
         tiempos.clear();
         
         
-        
+        JOptionPane.showMessageDialog(null, "Se ha guardado la información");
         
         
         
