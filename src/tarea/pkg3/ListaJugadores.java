@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class ListaJugadores {
     

@@ -21,8 +21,8 @@ import tarea.pkg3.ListaJugadores;
 import tarea.pkg3.Util;
 
 /**
- *
- * @author Edgar-pc
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class Menu extends javax.swing.JFrame {
 

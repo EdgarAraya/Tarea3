@@ -15,8 +15,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class Util {
     

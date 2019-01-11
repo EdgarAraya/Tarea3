@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import tarea.pkg3.Jugador;
 
 /**
- *
- * @author Edgar-pc
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class NuevoJugador extends javax.swing.JFrame {
 

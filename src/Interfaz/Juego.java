@@ -26,10 +26,9 @@ import javax.swing.JOptionPane;
 import tarea.pkg3.Jugador;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
-
 //test
 public class Juego extends javax.swing.JDialog {
 

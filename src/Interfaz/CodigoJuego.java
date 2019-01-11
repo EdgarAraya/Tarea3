@@ -8,8 +8,8 @@ package Interfaz;
 import java.util.Random;
 
 /**
- *
- * @author luisbenitez
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class CodigoJuego {
     

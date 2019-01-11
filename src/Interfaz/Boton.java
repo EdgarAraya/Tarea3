@@ -15,8 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class Boton extends JButton implements ActionListener{
     

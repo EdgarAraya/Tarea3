@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class Jugador implements Comparable<Jugador> {
     

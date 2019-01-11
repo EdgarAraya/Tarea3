@@ -8,8 +8,8 @@ package tarea.pkg3;
 import Interfaz.Menu;
 
 /**
- *
- * @author Luis
+ * @author Edgar Araya
+ * @author Luis Benitez
  */
 public class Tarea3 {
 
